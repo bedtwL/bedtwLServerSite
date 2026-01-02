@@ -10,7 +10,7 @@
             --bg-color: #050505;
             --card-bg: rgba(255, 255, 255, 0.03);
             --card-border: rgba(255, 255, 255, 0.08);
-            --accent-color: #7c4dff; /* 紫色調 */
+            --accent-color: #ff2d2d;
             --text-main: #ffffff;
             --text-dim: #b0b0b0;
             --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -36,6 +36,12 @@
         }
 
         h1 {
+            margin-top: 100px;
+            animation-name: slideUp;
+            animation-duration: 1s;
+            animation-timing-function: ease-out;
+            animation-fill-mode: forwards;
+
             font-family: 'Montserrat', sans-serif;
             font-size: 3rem;
             text-align: center;
@@ -45,8 +51,8 @@
         }
 
         .highlight {
-            color: var(--accent-color);
-            text-shadow: 0 0 20px rgba(124, 77, 255, 0.6);
+            color: rgb(255, 73, 73);
+            text-shadow: 0 0 20px rgb(255, 72, 72);
         }
 
         p {
@@ -70,8 +76,7 @@
         }
 
         .server-ip:hover {
-            border-color: var(--accent-color);
-            box-shadow: 0 0 30px rgba(124, 77, 255, 0.1);
+            border-color: rgb(75, 75, 75);
         }
 
         .server-ip p {
@@ -96,7 +101,6 @@
         .copy-btn:hover {
             transform: translateY(-2px);
             filter: brightness(1.2);
-            box-shadow: 0 5px 15px rgba(124, 77, 255, 0.4);
         }
 
         .server-list {
@@ -119,7 +123,7 @@
         .server-item:hover {
             transform: translateY(-10px);
             background: rgba(255, 255, 255, 0.05);
-            border-color: rgba(255, 255, 255, 0.2);
+            border-color: rgb(75, 75, 75);
         }
 
         .server-item h2 {
@@ -171,31 +175,44 @@
         }
 
         a {
-            color: var(--accent-color);
+            color: rgb(48, 103, 255);
             text-decoration: none;
             transition: var(--transition);
         }
 
         a:hover {
-            text-decoration: underline;
+            color: rgb(0, 183, 255);
         }
 
         .navbar {
             height: 70px;
-            border-bottom: 1px solid var(--card-border);
+            border-bottom: 1px solid #ffffff44;
             backdrop-filter: blur(20px);
             position: sticky;
             top: 0;
             z-index: 100;
         }
 
+        /* cellphone lah */
         @media (max-width: 768px) {
             h1 { font-size: 2rem; }
             .server-list { grid-template-columns: 1fr; }
         }
+        /* title's animation */
+        @keyframes slideUp {
+            0% {
+                transform: translateY(50px);
+                opacity: 0;
+              }
+            100% {
+                transform: translateY(0);
+                opacity: 1;
+               }
+            }
     </style>
 </head>
 <body>
+
 <div id="navbar" class="navbar"></div>
 
 <div class="container">
@@ -203,8 +220,8 @@
     <p>Explore exciting game modes: Free-for-All and SMP worlds.</p>
 
     <div class="server-ip">
-        <p><strong>Server Ip : bedtwL.com</strong></p>
-        <button class="copy-btn" onclick="copyIP()">Click to copy IP</button>
+        <p><strong>Server IP : bedtwL.com</strong></p>
+        <button class="copy-btn" onclick="copyIP()">Click To Copy IP</button>
     </div>
 
     <div class="server-list">
@@ -229,7 +246,7 @@
             </ul>
         </div>
         <div class="server-item">
-            <h2>SMP2(Previusly known as SMP5): Endless Survival</h2>
+            <h2>SMP5: Endless Survival</h2>
             <p>Challenge yourself with extended survival features:</p>
             <ul>
                 <li><strong>Extended Enchantments:</strong> Upgrade your gear beyond limits.</li>
@@ -248,7 +265,7 @@
     <div class="server-list">
         <div class="server-item">
             <p style="text-align: center;">We will have V3 in the future \w/ </p>
-            <p style="text-align: center;">Check out <a href="https://discord.gg/zjZeUVYbUs">Our Discord Server!</a></p>
+            <p style="text-align: center;">Check out <a href="https://dsc.gg/bedtwL">Our Discord Server!</a></p>
         </div>
     </div>
 </div>
@@ -260,7 +277,7 @@
             const btn = document.querySelector('.copy-btn');
             const originalText = btn.innerText;
             btn.innerText = "Copied!";
-            btn.style.background = "#00e5ff";
+            btn.style.background = "#00ff55";
             setTimeout(() => {
                 btn.innerText = originalText;
                 btn.style.background = "";
