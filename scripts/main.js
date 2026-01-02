@@ -14,7 +14,7 @@ function copyIP() {
     });
 }
 const copybtn = document.querySelector('.copy-btn');
-if (copybtn) copybtn.addEventListener('click', copyIP);
+if (copybtn) copybtn.addEventListener('click', copyIP);~
 
 function navbar() {
     const navbar = document.getElementById("navbar");
