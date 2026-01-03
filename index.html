@@ -41,7 +41,6 @@
             animation-duration: 1s;
             animation-timing-function: ease-out;
             animation-fill-mode: forwards;
-
             font-family: 'Montserrat', sans-serif;
             font-size: 3rem;
             text-align: center;
@@ -75,9 +74,7 @@
             transition: var(--transition);
         }
 
-        .server-ip:hover {
-            border-color: rgb(75, 75, 75);
-        }
+        .server-ip:hover { border-color: rgb(75, 75, 75); }
 
         .server-ip p {
             margin: 0 0 15px 0;
@@ -140,10 +137,7 @@
             margin: 15px 0;
         }
 
-        ul {
-            list-style: none;
-            padding: 0;
-        }
+        ul { list-style: none; padding: 0; }
 
         li {
             margin-bottom: 12px;
@@ -160,18 +154,27 @@
             color: var(--accent-color);
         }
 
-        li strong {
-            color: #fff;
+        li strong { color: #fff; }
+
+        /* 職位顏色 */
+        .rank-manager { color: #f1c40f !important; }
+        .rank-retiredmanager { color: #e67e22 !important; }
+        .rank-admin { color: #ff4b4b !important; }
+        .rank-mod { color: #b967ff !important; }
+        .rank-dev { color: #2ecc71 !important; }
+        .rank-builder { color: #206694 !important; }
+        .rank-helper { color: #11806a !important; }
+
+        #news-section, #staff-section { margin-top: 100px; }
+
+        /* 讓 News 和 Staff 區塊的卡片一致置中且寬度跟隨 Container */
+        .full-width-card {
+            grid-template-columns: 1fr;
         }
 
-        #news-section {
-            margin-top: 100px;
-        }
-
-        #news-section .server-item {
+        .full-width-card .server-item {
             text-align: center;
             justify-content: center;
-            min-height: 150px;
         }
 
         a {
@@ -180,9 +183,7 @@
             transition: var(--transition);
         }
 
-        a:hover {
-            color: rgb(0, 183, 255);
-        }
+        a:hover { color: rgb(0, 183, 255); }
 
         .navbar {
             height: 70px;
@@ -193,22 +194,15 @@
             z-index: 100;
         }
 
-        /* cellphone lah */
         @media (max-width: 768px) {
             h1 { font-size: 2rem; }
             .server-list { grid-template-columns: 1fr; }
         }
-        /* title's animation */
+
         @keyframes slideUp {
-            0% {
-                transform: translateY(50px);
-                opacity: 0;
-              }
-            100% {
-                transform: translateY(0);
-                opacity: 1;
-               }
-            }
+            0% { transform: translateY(50px); opacity: 0; }
+            100% { transform: translateY(0); opacity: 1; }
+        }
     </style>
 </head>
 <body>
@@ -257,15 +251,33 @@
     </div>
 </div>
 
+<div class="container" id="staff-section">
+    <h1>Server <span class="highlight">Staff</span></h1>
+    <div class="server-list full-width-card">
+        <div class="server-item">
+            <h2>Server Staff List</h2>
+            <div style="display: flex; justify-content: center;">
+                <ul style="text-align: left; display: inline-block;">
+                    <li><strong class="rank-manager">Owner</strong> — BedtwL</li>
+                    <li><strong class="rank-retiredmanager">RetiredManager</strong> — UnlimitFPS</li>
+                    <li><strong class="rank-admin">Admin</strong> — r4q8、mini、Inytw</li>
+                    <li><strong class="rank-dev">Developer</strong> — ItsGlobally</li>
+                    <li><strong class="rank-builder">Builder</strong> — Meowy、CoolCat_487、realRWAlone、amiao_tw、Vip_plus</li>
+                    <li><strong class="rank-mod">Moderator</strong> — NO PEOPLE owob</li>
+                    <li><strong class="rank-helper">Helper</strong> — sus_Fries</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
 
 <div class="container" id="news-section">
     <h1>News</h1>
     <p>The news for new feature or server status</p>
-
-    <div class="server-list">
+    <div class="server-list full-width-card">
         <div class="server-item">
-            <p style="text-align: center;">We will have V3 in the future \w/ </p>
-            <p style="text-align: center;">Check out <a href="https://dsc.gg/bedtwL">Our Discord Server!</a></p>
+            <p style="text-align: center; margin: 10px 0;">We will have V3 in the future \w/ </p>
+            <p style="text-align: center; margin: 10px 0;">Check out <a href="https://dsc.gg/bedtwL">Our Discord Server!</a></p>
         </div>
     </div>
 </div>
