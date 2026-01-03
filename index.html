@@ -178,12 +178,17 @@
         }
 
         a {
-            color: rgb(48, 103, 255);
+            background: linear-gradient(135deg, rgb(48, 103, 255) 20%, rgb(89, 166, 255) 50%,  rgb(0, 238, 255) 100%);
+	        -webkit-background-clip: text;
             text-decoration: none;
             transition: var(--transition);
         }
 
-        a:hover { color: rgb(0, 183, 255); }
+        a:hover {
+	        background: linear-gradient(135deg, rgb(48, 103, 255) 20%, rgb(89, 166, 255) 50%,  rgb(0, 238, 255) 100%);
+	        -webkit-background-clip: text;
+	        color: transparent;
+}
 
         .navbar {
             height: 70px;
