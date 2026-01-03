@@ -1,21 +1,45 @@
 
+// Copy IP
 function copyIP() {
-    navigator.clipboard.writeText("bedtwL.com").then(() => {
-        const button = document.querySelector('.copy-btn');
-        button.innerText = "Copied!";
-        button.style.backgroundColor = "#4CAF50";
+        const ip = "bedtwL.com";
+        navigator.clipboard.writeText(ip).then(() => {
+            const btn = document.querySelector('.copy-btn');
+            const originalText = btn.innerText;
+            btn.innerText = "Copied!";
+            btn.style.background = "#00ff55";
+            setTimeout(() => {
+                btn.innerText = originalText;
+                btn.style.background = "";
+            }, 2000);
+        });
+    }
 
-        setTimeout(() => {
-            button.innerText = "Copy IP";
-            button.style.backgroundColor = "#007BFF";
-        }, 2000);
-    }).catch(err => {
-        console.error("Error copying IP: ", err);
+// Staff list 框框
+document.addEventListener("DOMContentLoaded", function() {
+    const players = document.querySelectorAll('.player-name');
+
+    players.forEach(player => {
+        const ign = player.getAttribute('data-ign');
+        const rank = player.getAttribute('data-rank') || "Staff";
+        const skill = player.getAttribute('data-skill') || "玩家協助";
+        
+        const tooltip = document.createElement('div');
+        tooltip.className = 'player-tooltip';
+        
+        tooltip.innerHTML = `
+    <img class="tooltip-img" 
+         src="https://visage.surgeplay.com/head/128/${ign}" 
+         alt="${ign}">
+    <span class="tooltip-ign">${ign}</span>
+    <span class="tooltip-rank">${rank}</span>
+    <span class="tooltip-skill">專長：${skill}</span>
+`;
+        
+        player.appendChild(tooltip);
     });
-}
-const copybtn = document.querySelector('.copy-btn');
-if (copybtn) copybtn.addEventListener('click', copyIP);~
+});
 
+// ========================================= //
 function navbar() {
     const navbar = document.getElementById("navbar");
     navbar.innerHTML += `<div class="nav-button"><a href="/">Home</a></div>`;

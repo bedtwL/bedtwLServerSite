@@ -4,7 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Montserrat:wght@800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="/style.css">
+    <script src="/script.js"></script>
     <title>bedtwL Minecraft Server</title>
+</head>
+<body>
+
     <style>
         :root {
             --bg-color: #050505;
@@ -208,9 +213,86 @@
             0% { transform: translateY(50px); opacity: 0; }
             100% { transform: translateY(0); opacity: 1; }
         }
+
+/* 玩家名稱：直接使用變數顏色 */
+.player-name {
+    position: relative;
+    font-weight: bold;
+    color: var(--rank-color); /* 自動套用 HTML 裡的顏色 */
+    cursor: pointer;
+    text-decoration: underline transparent;
+    transition: all 0.2s;
+}
+
+.player-name:hover {
+    text-decoration: underline var(--rank-color);
+    filter: brightness(1.2);
+}
+
+/* 彈出資訊框 */
+.player-tooltip {
+    visibility: hidden;
+    opacity: 0;
+    position: absolute;
+    bottom: 130%;
+    left: 50%;
+    transform: translateX(-50%) translateY(10px);
+    background: #1a1a1a;
+    /* 邊框顏色也自動套用 */
+    border: 2px solid var(--rank-color); 
+    border-radius: 10px;
+    padding: 12px;
+    width: 160px;
+    text-align: center;
+    z-index: 1000;
+    transition: all 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+}
+
+.player-name:hover .player-tooltip {
+    visibility: visible;
+    opacity: 1;
+    transform: translateX(-50%) translateY(0);
+}
+
+/* 內部的文字顏色 */
+.tooltip-ign {
+    display: block;
+    color: var(--rank-color); /* 名字顏色 */
+    font-size: 18px;
+    font-weight: 800;
+    margin-top: 5px;
+}
+
+.tooltip-rank {
+    display: block;
+    color: #ffffff;
+    font-size: 13px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    border-bottom: 1px solid #444;
+    padding-bottom: 5px;
+}
+
+.tooltip-skill {
+    display: block;
+    color: #cccccc;
+    font-size: 11px;
+    line-height: 1.4;
+}
+
+/* 箭頭顏色自動套用 */
+.player-tooltip::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -8px;
+    border-width: 8px;
+    border-style: solid;
+    border-color: var(--rank-color) transparent transparent transparent;
+}
     </style>
-</head>
-<body>
 
 <div id="navbar" class="navbar"></div>
 
@@ -258,21 +340,87 @@
 
 <div class="container" id="staff-section">
     <h1>Server <span class="highlight">Staff</span></h1>
-    <div class="server-list full-width-card">
-        <div class="server-item">
-            <h2>Server Staff List</h2>
-            <div style="display: flex; justify-content: center;">
-                <ul style="text-align: left; display: inline-block;">
-                    <li><strong class="rank-manager">Owner</strong> — BedtwL</li>
-                    <li><strong class="rank-retiredmanager">RetiredManager</strong> — UnlimitFPS</li>
-                    <li><strong class="rank-admin">Admin</strong> — r4q8、mini、Inytw</li>
-                    <li><strong class="rank-dev">Developer</strong> — ItsGlobally</li>
-                    <li><strong class="rank-builder">Builder</strong> — Meowy、CoolCat_487、realRWAlone、amiao_tw、Vip_plus</li>
-                    <li><strong class="rank-mod">Moderator</strong> — NO PEOPLE owob</li>
-                    <li><strong class="rank-helper">Helper</strong> — sus_Fries</li>
-                </ul>
-            </div>
-        </div>
+    <p>Server Staff List (將滑鼠移到名字上查看詳細資訊)</p>
+    
+    <div style="display: flex; justify-content: center; margin-top: 30px;">
+        <ul style="text-align: left;">
+            
+            <li>
+                <strong style="color: #ffaa00;">Owner</strong> — 
+                <span class="player-name" 
+                      data-ign="BedtwL" 
+                      data-rank="伺服器擁有者" 
+                      data-skill="伺服器主機架設、寫伺服器插件、不會發薪水、絕區零沉迷者"
+                      style="--rank-color: #ffaa00;">bedtwL</span>
+            </li>
+
+            <li>
+                <strong style="color: #ff4b4b;">Admin</strong> — 
+                <span class="player-name" 
+                      data-ign="r4q8" 
+                      data-rank="總管理員" 
+                      data-skill="Bug 修復、權限控管、伺服器性能優化、網站設計、PvP有開根沒開一樣"
+                      style="--rank-color: #ff4b4b;">r4q8</span>、
+                <span class="player-name" 
+                      data-ign="InyTw" 
+                      data-rank="技術管理員" 
+                      data-skill="手動 [/ban]、玩家糾紛處理、插件處理、加強網站設計(?"
+                      style="--rank-color: #ff4b4b;">InyTw</span>、
+                <span class="player-name" 
+                      data-ign="miniblack_tw" 
+                      data-rank="技術管理員" 
+                      data-skill="插件處理、伺服器優化?"
+                      style="--rank-color: #ff4b4b;">miniblack_tw</span>
+            </li>
+
+            <li>
+                <strong style="color: #55ff55;">Builder</strong> — 
+                <span class="player-name" 
+                      data-ign="_MeowYee26"
+                      data-rank="首席建築師(?" 
+                      data-skill="大廳設計、PureFFA 地圖製作"
+                      style="--rank-color: #55ff55;">_MeowYee26</span>、
+                <span class="player-name" 
+                      data-ign="CoolCat_487" 
+                      data-rank="建築團隊" 
+                      data-skill="大廳設計、能幫就幫"
+                      style="--rank-color: #55ff55;">CoolCat_487</span>、
+                <span class="player-name" 
+                      data-ign="realRWAlone" 
+                      data-rank="建築團隊" 
+                      data-skill="大廳設計、偶爾上線"
+                      style="--rank-color: #55ff55;">realRWAlone</span>、
+                <span class="player-name" 
+                      data-ign="amiao_tw" 
+                      data-rank="建築團隊" 
+                      data-skill="不知道"
+                      style="--rank-color: #55ff55;">amiao_tw</span>、
+                <span class="player-name" 
+                      data-ign="Vip_plus" 
+                      data-rank="建築團隊" 
+                      data-skill="FFA地圖製作"
+                      style="--rank-color: #55ff55;">Vip_plus</span>、
+            </li>
+
+            <li>
+                <strong style="color: #206694;">Moderator</strong> — 
+                <span class="player-name" 
+                      data-ign="Null"
+                      data-rank="Null"
+                      data-skill="Null"
+                      style="--rank-color: #ffffff;">NULL</span>
+            </li>
+
+            <li>
+                <strong style="color: #55ffff;">Helper</strong> — 
+                <span class="player-name" 
+                      data-ign="osu_susFries" 
+                      data-rank="新手導師" 
+                      data-skill="我不知道他做了啥~"
+                      style="--rank-color: #55ffff;">osu_susFries</span>
+            </li>
+
+        </ul>
     </div>
 </div>
 
@@ -286,21 +434,5 @@
         </div>
     </div>
 </div>
-
-<script>
-    function copyIP() {
-        const ip = "bedtwL.com";
-        navigator.clipboard.writeText(ip).then(() => {
-            const btn = document.querySelector('.copy-btn');
-            const originalText = btn.innerText;
-            btn.innerText = "Copied!";
-            btn.style.background = "#00ff55";
-            setTimeout(() => {
-                btn.innerText = originalText;
-                btn.style.background = "";
-            }, 2000);
-        });
-    }
-</script>
 </body>
 </html>
