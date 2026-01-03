@@ -32,7 +32,7 @@ document.addEventListener("DOMContentLoaded", function() {
          alt="${ign}">
     <span class="tooltip-ign">${ign}</span>
     <span class="tooltip-rank">${rank}</span>
-    <span class="tooltip-skill">專長：${skill}</span>
+    <span class="tooltip-skill">${skill}</span>
 `;
         
         player.appendChild(tooltip);
