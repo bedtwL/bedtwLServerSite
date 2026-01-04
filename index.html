@@ -214,13 +214,12 @@
             100% { transform: translateY(0); opacity: 1; }
         }
 
-/* 玩家名稱：直接使用變數顏色 */
 .player-name {
     position: relative;
     font-weight: bold;
-    color: #b0b0b0 !important; /* 你指定的清單名稱顏色 */
+    color: #b0b0b0 !important;
     cursor: pointer;
-    text-decoration: none !important; /* 核心：移除底線 */
+    text-decoration: none !important;
     transition: var(--transition);
     display: inline-block;
 }
@@ -230,7 +229,6 @@
     filter: brightness(1.2);
 }
 
-/* 彈出資訊框 */
 .player-tooltip {
     visibility: hidden;
     opacity: 0;
@@ -238,8 +236,7 @@
     bottom: 130%;
     left: 50%;
     transform: translateX(-50%) translateY(10px);
-    background: #1a1a1a;
-    /* 邊框顏色也自動套用 */
+    background: #1d1d1d;
     border: 2px solid var(--rank-color); 
     border-radius: 10px;
     padding: 12px;
@@ -247,7 +244,7 @@
     text-align: center;
     z-index: 1000;
     transition: all 0.3s cubic-bezier(0.18, 0.89, 0.32, 1.28);
-    box-shadow: 0 10px 20px rgba(0,0,0,0.5);
+    box-shadow: 0 10px 20px rgba(187, 187, 187, 0.5);
 }
 
 .player-name:hover .player-tooltip {
@@ -256,14 +253,13 @@
     transform: translateX(-50%) translateY(0);
 }
 
-/* 內部的文字顏色 */
 .tooltip-ign {
     display: block;
     color: var(--rank-color);
     font-size: 18px;
     font-weight: 800;
     margin-bottom: 5px;
-    text-decoration: none !important; /* 確保框內也沒有底線 */
+    text-decoration: none !important;
 }
 
 .tooltip-rank {
@@ -283,7 +279,6 @@
     line-height: 1.4;
 }
 
-/* 箭頭顏色自動套用 */
 .player-tooltip::after {
     content: "";
     position: absolute;
