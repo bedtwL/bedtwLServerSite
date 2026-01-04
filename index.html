@@ -218,10 +218,11 @@
 .player-name {
     position: relative;
     font-weight: bold;
-    color: var(--rank-color); /* 自動套用 HTML 裡的顏色 */
+    color: #b0b0b0 !important; /* 你指定的清單名稱顏色 */
     cursor: pointer;
-    text-decoration: underline transparent;
-    transition: all 0.2s;
+    text-decoration: none !important; /* 核心：移除底線 */
+    transition: var(--transition);
+    display: inline-block;
 }
 
 .player-name:hover {
@@ -258,10 +259,11 @@
 /* 內部的文字顏色 */
 .tooltip-ign {
     display: block;
-    color: var(--rank-color); /* 名字顏色 */
+    color: var(--rank-color);
     font-size: 18px;
     font-weight: 800;
-    margin-top: 5px;
+    margin-bottom: 5px;
+    text-decoration: none !important; /* 確保框內也沒有底線 */
 }
 
 .tooltip-rank {
@@ -365,21 +367,9 @@
 
             <li>
                 <strong style="color: #ff4b4b;">Admin</strong> — 
-                <span class="player-name" 
-                      data-ign="r4q8" 
-                      data-rank="總管理員" 
-                      data-skill="Bug 修復、權限控管、伺服器性能優化、網站設計、PvP有開根沒開一樣"
-                      style="--rank-color: #ff4b4b;">r4q8</span>、
-                <span class="player-name" 
-                      data-ign="InyTw" 
-                      data-rank="技術管理員" 
-                      data-skill="手動 [/ban]、玩家糾紛處理、插件處理、加強網站設計(?"
-                      style="--rank-color: #ff4b4b;">InyTw</span>、
-                <span class="player-name" 
-                      data-ign="miniblack_tw" 
-                      data-rank="技術管理員" 
-                      data-skill="插件處理、伺服器優化?"
-                      style="--rank-color: #ff4b4b;">miniblack_tw</span>
+                <span class="player-name" data-ign="r4q8" data-rank="總管理員" data-skill="Bug 修復、權限控管、伺服器性能優化、網站設計、PvP有開跟沒開一樣" style="--rank-color: #ff4b4b;">r4q8</span>、
+                <span class="player-name" data-ign="InyTw" data-rank="技術管理員" data-skill="手動 [/ban]、玩家糾紛處理、插件處理、加強網站設計(?" style="--rank-color: #ff4b4b;">InyTw</span>、
+                <span class="player-name" data-ign="miniblack_tw" data-rank="技術管理員" data-skill="插件處理、伺服器優化?" style="--rank-color: #ff4b4b;">miniblack_tw</span>
             </li>
 
             <li>
@@ -393,31 +383,11 @@
 
             <li>
                 <strong style="color: #206694;">Builder</strong> — 
-                <span class="player-name" 
-                      data-ign="_MeowYee26"
-                      data-rank="建築師(?" 
-                      data-skill="大廳設計、PureFFA 地圖製作"
-                      style="--rank-color: #206694;">_MeowYee26</span>、
-                <span class="player-name" 
-                      data-ign="CoolCat_487" 
-                      data-rank="建築團隊" 
-                      data-skill="大廳設計、能幫就幫"
-                      style="--rank-color: #206694;">CoolCat_487</span>、
-                <span class="player-name" 
-                      data-ign="realRWAlone" 
-                      data-rank="建築團隊" 
-                      data-skill="大廳設計、偶爾上線"
-                      style="--rank-color: #206694;">realRWAlone</span>、
-                <span class="player-name" 
-                      data-ign="amiao_tw" 
-                      data-rank="建築團隊" 
-                      data-skill="不知道"
-                      style="--rank-color: #206694;">amiao_tw</span>、
-                <span class="player-name" 
-                      data-ign="Vip_plus" 
-                      data-rank="建築團隊" 
-                      data-skill="FFA地圖製作"
-                      style="--rank-color: #206694;">Vip_plus</span>、
+                <span class="player-name" data-ign="_MeowYee26" data-rank="建築師(?" data-skill="大廳設計、PureFFA 地圖製作" style="--rank-color: #206694;">_MeowYee26</span>、
+                <span class="player-name" data-ign="CoolCat_487" data-rank="建築團隊" data-skill="大廳設計、能幫就幫" style="--rank-color: #206694;">CoolCat_487</span>、
+                <span class="player-name" data-ign="realRWAlone" data-rank="建築團隊" data-skill="大廳設計、偶爾上線" style="--rank-color: #206694;">realRWAlone</span>、
+                <span class="player-name" data-ign="amiao_tw" data-rank="建築團隊" data-skill="不知道" style="--rank-color: #206694;">amiao_tw</span>、
+                <span class="player-name" data-ign="Vip_plus" data-rank="建築團隊" data-skill="FFA地圖製作" style="--rank-color: #206694;">Vip_plus</span>
             </li>
 
             <li>
@@ -426,7 +396,7 @@
                       data-ign="Null"
                       data-rank="Null"
                       data-skill="Null"
-                      style="--rank-color: #ffffff;">NULL</span>
+                      style="--rank-color: #b967ff;">NULL</span>
             </li>
 
             <li>
