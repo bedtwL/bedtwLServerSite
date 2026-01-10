@@ -21,7 +21,6 @@
     --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     }
 
-    /* --- 新增：淺色模式顏色定義 --- */
     body.light-mode {
     --bg-color: #f5f5f7;
     --card-bg: rgba(0, 0, 0, 0.05);
@@ -41,7 +40,7 @@
     font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
     line-height: 1.6;
     overflow-x: hidden;
-    transition: background-color 0.5s ease; /* 平滑切換背景色 */
+    transition: background-color 0.5s ease;
     }
 
     .navbar {
@@ -67,13 +66,6 @@
     .nav-logo {
     width: 60px;
     height: 60px;
-    border-radius: 8px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    color: white;
-    box-shadow: 0 0 15px rgba(255, 45, 45, 0.3);
     }
 
     .nav-name {
@@ -155,7 +147,7 @@
     .server-ip p {
     margin: 0 0 15px 0;
     font-size: 1.5rem;
-    color: var(--text-main); /* 改為變數以支援淺色模式 */
+    color: var(--text-main);
     letter-spacing: 2px;
     }
 
@@ -230,9 +222,8 @@
     color: var(--accent-color);
     }
 
-    li strong { color: var(--text-main); } /* 改為變數 */
+    li strong { color: var(--text-main); }
 
-    /* 職位顏色 */
     .rank-manager { color: #f1c40f !important; }
     .rank-retiredmanager { color: #e67e22 !important; }
     .rank-admin { color: #ff4b4b !important; }
