@@ -7,17 +7,104 @@
         <link rel="icon" href="/favicon.ico">
         <title>bedtwL Minecraft Server</title>
     </head>
+    <style>
+        .stats-input {
+            width: 400px;
+            padding: 5px;
+            font-size: 15px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+        }
+        .stats-submit {
+            padding: 5px 10px;
+            font-size: 15px;
+            border: none;
+            border-radius: 4px;
+            background: #4CAF50;
+            transition: background 0.3s;
+            color: white;
+            cursor: pointer;
+        }
+        .stats-submit:hover {
+            transition: background 0.3s;
+            background: #275e2a;
+        }
+
+        .container_stats {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 20vh;
+        }
+    </style>
     <body>
-        <div id="navbar" class="navbar"></div>
-        <div class="container stats">
+        <div id="navbar" class="navbar">
+                <div class="nav-brand">
+                    <img src="b.png" class="nav-logo">
+                    <div class="nav-name">bedtw<span class="highlight">L</span> Server</div>
+                </div>
+
+                <div class="nav-right">
+                    <div class="nav-controls">
+                        <button class="control-btn" onclick="location.href='/'" id="homeBtn" data-en="Home" data-zh="首頁">Home</button>
+                        <button class="control-btn" onclick="location.href='/stats.html'" id="statsBtn" data-en="Stats" data-zh="統計">Stats</button>
+                        <button class="control-btn" onclick="toggleLanguage()" id="langBtn">EN/繁中</button>
+                        <button class="control-btn" onclick="toggleTheme()" id="themeBtn"
+                                data-en-dark="🌙 Dark"
+                                data-zh-dark="🌙 深色"
+                                data-en-light="☀️ Light"
+                                data-zh-light="☀️ 淺色">
+                            🌙 Dark
+                        </button>
+                    </div>
+                </div>
+            </div>
+        <div class="container_stats">
             <form id="statsform">
                 <input class="stats-input" id="stats" type="text" placeholder="Input player name or uuid">
                 <input type="submit" value="Submit" class="stats-submit">
             </form>
-            <div id="result">
-                
-            </div>
+            <div id="result" data-en="Sorry, But You CAN'T search player now, bcs API NOT working~" data-zh="很抱歉，但你現在沒辦法搜尋玩家，因為API沒有運作~">Sorry, But You CAN'T search player now, bcs API NOT working~</div>
         </div>
-        <script src="/scripts/main.js"></script>
+
+        <script>
+
+            let currentLang = 'en';
+
+            function toggleLanguage() {
+            currentLang = (currentLang === 'en') ? 'zh' : 'en';
+            const langBtn = document.getElementById('langBtn');
+            langBtn.innerText = (currentLang === 'en') ? "EN / 繁中" : "繁中 / EN";
+            const elements = document.querySelectorAll('[data-en]');
+            elements.forEach(el => {
+                const newText = (currentLang === 'zh') ? el.getAttribute('data-zh') : el.getAttribute('data-en');
+                if (newText.includes('<')) {
+                    el.innerHTML = newText;
+                } else {
+                    el.innerText = newText;
+                }
+            });
+            updateThemeButtonText();
+        }
+
+        function updateThemeButtonText() {
+            const themeBtn = document.getElementById('themeBtn');
+            const isLight = document.body.classList.contains('light-mode');
+            const mode = isLight ? 'light' : 'dark';
+
+            const newText = themeBtn.getAttribute(`data-${currentLang}-${mode}`);
+            if (newText) {
+                themeBtn.innerText = newText;
+            }
+        }
+
+        function toggleTheme() {
+            const body = document.body;
+            body.classList.toggle('light-mode');
+            updateThemeButtonText();
+        }
+        </script>
+        
     </body>
 </html>

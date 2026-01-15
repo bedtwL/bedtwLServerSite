@@ -14,7 +14,6 @@ function copyIP() {
         });
     }
 
-// Staff list 框框
 document.addEventListener("DOMContentLoaded", function() {
     const players = document.querySelectorAll('.player-name');
 
@@ -40,13 +39,8 @@ document.addEventListener("DOMContentLoaded", function() {
 });
 
 // ========================================= //
-function navbar() {
-    const navbar = document.getElementById("navbar");
-    navbar.innerHTML += `<div class="nav-button"><a href="/">Home</a></div>`;
-    navbar.innerHTML += `<div class="nav-button"><a href="/api-docs.html">API Docs</a></div>`;
-    navbar.innerHTML += `<div class="nav-button"><a href="/stats.html">Player Stats</a></div>`;
-}
 navbar();
+
 const statsform = document.getElementById("statsform");
 
 if (statsform) {
@@ -80,3 +74,21 @@ if (statsform) {
             });
     });
 }
+
+
+function updateThemeButtonText() {
+            const themeBtn = document.getElementById('themeBtn');
+            const isLight = document.body.classList.contains('light-mode');
+            const mode = isLight ? 'light' : 'dark';
+
+            const newText = themeBtn.getAttribute(`data-${currentLang}-${mode}`);
+            if (newText) {
+                themeBtn.innerText = newText;
+            }
+        }
+
+        function toggleTheme() {
+            const body = document.body;
+            body.classList.toggle('light-mode');
+            updateThemeButtonText();
+        }
