@@ -254,7 +254,7 @@
         }
 
         .server-ip {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/picture/image.png');
+        background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0)), url('/picture/image.png');
         background-size: auto;
         background-position: center;
         border: 2px solid var(--card-border);
