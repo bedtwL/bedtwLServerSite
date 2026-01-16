@@ -190,6 +190,12 @@
     </div>
 
     <script>
+
+        document.getElementById('hamburgerMenu').addEventListener('click', function() {
+  this.classList.toggle('active');
+  document.getElementById('mobileNav').classList.toggle('active');
+});
+
         let currentLang = 'en';
 
         function updateThemeButtonText() {
