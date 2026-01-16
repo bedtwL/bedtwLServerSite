@@ -5,107 +5,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Montserrat:wght@800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="/css/main.css">
+    <link rel="stylesheet" href="/css/stats.css">
     <script src="/scripts/main.js"></script>
     <title>bedtwL Minecraft Server</title>
     </head>
-    <style>
-        .stats-input {
-            width: 400px;
-            padding: 5px;
-            font-size: 15px;
-            border: 1px solid #ccc;
-            border-radius: 4px;
-        }
-        .stats-submit {
-            padding: 5px 10px;
-            font-size: 15px;
-            border: none;
-            border-radius: 4px;
-            background: #4CAF50;
-            transition: background 0.3s;
-            color: white;
-            cursor: pointer;
-        }
-        .stats-submit:hover {
-            transition: background 0.3s;
-            background: #275e2a;
-        }
 
-        .container_stats {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            justify-content: center;
-            min-height: 80vh;
-            text-align: center;
-            padding: 20px;
-        }
-
-        .search-card {
-            background: rgba(255, 255, 255, 0.05);
-            padding: 20px;
-            border-radius: 35px;
-            box-shadow: 0 15px 35=px rgba(0,0,0,0.5);
-            border: 1px solid rgba(255,255,255,0.1);
-            backdrop-filter: blur(20px);
-        }
-
-        .stats-input {
-            width: 350px;
-            padding: 15px 20px;
-            font-size: 16px;
-            border: 2px solid transparent;
-            border-radius: 12px;
-            background: rgba(255,255,255,0.9);
-            color: #333;
-            outline: none;
-            transition: 0.3s;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
-        }
-
-        .stats-input:focus {
-            border-color: #4CAF50;
-            width: 380px;
-        }
-
-        .stats-submit {
-            padding: 15px 30px;
-            margin-left: 10px;
-            font-size: 16px;
-            font-weight: bold;
-            border: none;
-            border-radius: 12px;
-            background: linear-gradient(135deg, #4CAF50, #2E7D32);
-            color: white;
-            cursor: pointer;
-            transition: 0.3s;
-            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
-        }
-
-        .stats-submit:hover {
-            transform: scale(1.05);
-            box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
-        }
-
-        #result {
-            margin-top: 25px;
-            font-size: 14px;
-            color: #aaa;
-            max-width: 500px;
-            line-height: 1.6;
-        }
-
-        body.light-mode {
-            background-color: #f5f5f5;
-            color: #333;
-        }
-        .light-mode .search-card {
-            background: white;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-            border: none;
-        }
-        .light-mode .control-btn { color: #333; border-color: #ccc; }
-    </style>
     <body>
         <div id="navbar" class="navbar">
             <div class="nav-brand">
@@ -132,8 +36,15 @@
             <div class="search-card">
                 <h1  data-en="Player Stats" data-zh="玩家統計數據">Player stats</h1>
                 <form id="statsform">
-                    <input class="stats-input" id="stats" type="text" placeholder="Input player name or uuid">
-                    <input type="submit" value="Submit" class="stats-submit">
+                    <input 
+                    class="stats-input" 
+                    id="stats" 
+                    type="text"
+                    placeholder="Enter Minecraft Username or UUID"
+                    pattern="[a-zA-Z0-9_]+"
+                    autocomplete="username"
+                    aria-describedby="username-hint">
+                    <input type="submit" value="❌" class="stats-submit">
                 </form>
                 <div id="result" data-en="Sorry, But You CAN'T search player now, bcs API NOT working~" data-zh="很抱歉，現在無法搜尋玩家，因為 API 尚未連線">
                     Sorry, But You CAN'T search player now, bcs API NOT working~
@@ -143,6 +54,7 @@
     </body>
 
         <script>
+
 
             let currentLang = 'en';
 
