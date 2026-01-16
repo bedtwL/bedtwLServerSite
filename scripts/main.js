@@ -92,3 +92,16 @@ function updateThemeButtonText() {
             body.classList.toggle('light-mode');
             updateThemeButtonText();
         }
+
+window.onload = function() {
+    const currentPath = window.location.pathname;
+    const homeBtn = document.getElementById('homeBtn');
+    const statsBtn = document.getElementById('statsBtn');
+    if (currentPath.includes('stats.html')) {
+        statsBtn.classList.add('active');
+        homeBtn.classList.remove('active');
+    } else {
+        homeBtn.classList.add('active');
+        statsBtn.classList.remove('active');
+    }
+};
