@@ -1,7 +1,3 @@
-document.getElementById('hamburgerMenu').addEventListener('click', function() {
-        this.classList.toggle('active');
-        document.getElementById('mobileNav').classList.toggle('active');
-        });
    /// REPEATED ON MAIN.JS, R4Q8 TOO DUMB by bedtwL
 /*
         function updateThemeButtonText() {
@@ -49,3 +45,7 @@ document.getElementById('hamburgerMenu').addEventListener('click', function() {
         });
         updateThemeButtonText();
         }
+        document.getElementById('hamburgerMenu').addEventListener('click', function() {
+                this.classList.toggle('active');
+                document.getElementById('mobileNav').classList.toggle('active');
+                });
