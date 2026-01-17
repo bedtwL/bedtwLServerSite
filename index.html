@@ -1,11 +1,12 @@
     <!DOCTYPE html>
-    <html lang="en">
+    <html lang="en" xmlns="http://www.w3.org/1999/html">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Montserrat:wght@800&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="/css/main.css">
         <script src="/scripts/main.js"></script>
+        <script src="/scripts/index-lang.js"></script>
         <title>bedtwL Minecraft Server</title>
     </head>
     <body>
@@ -188,48 +189,5 @@
             </div>
         </div>
     </div>
-
-    <script>
-
-        document.getElementById('hamburgerMenu').addEventListener('click', function() {
-        this.classList.toggle('active');
-        document.getElementById('mobileNav').classList.toggle('active');
-        });
-
-        let currentLang = 'en';
-
-        function updateThemeButtonText() {
-            const themeBtn = document.getElementById('themeBtn');
-            const isLight = document.body.classList.contains('light-mode');
-            const mode = isLight ? 'light' : 'dark';
-
-            const newText = themeBtn.getAttribute(`data-${currentLang}-${mode}`);
-            if (newText) {
-                themeBtn.innerText = newText;
-            }
-        }
-
-        function toggleTheme() {
-            const body = document.body;
-            body.classList.toggle('light-mode');
-            updateThemeButtonText();
-        }
-
-        function toggleLanguage() {
-            currentLang = (currentLang === 'en') ? 'zh' : 'en';
-            const langBtn = document.getElementById('langBtn');
-            langBtn.innerText = (currentLang === 'en') ? "EN / 繁中" : "繁中 / EN";
-            const elements = document.querySelectorAll('[data-en]');
-            elements.forEach(el => {
-                const newText = (currentLang === 'zh') ? el.getAttribute('data-zh') : el.getAttribute('data-en');
-                if (newText.includes('<')) {
-                    el.innerHTML = newText;
-                } else {
-                    el.innerText = newText;
-                }
-            });
-            updateThemeButtonText();
-        }
-    </script>
     </body>
     </html>
