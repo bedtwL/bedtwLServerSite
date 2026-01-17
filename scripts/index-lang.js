@@ -2,9 +2,7 @@ document.getElementById('hamburgerMenu').addEventListener('click', function() {
         this.classList.toggle('active');
         document.getElementById('mobileNav').classList.toggle('active');
         });
-
-        let currentLang = localStorage.getItem('preferredLang') || 'en';
-        /// REPEATED ON MAIN.JS, R4Q8 TOO DUMB by bedtwL
+   /// REPEATED ON MAIN.JS, R4Q8 TOO DUMB by bedtwL
 /*
         function updateThemeButtonText() {
             const themeBtn = document.getElementById('themeBtn');
@@ -22,14 +20,17 @@ document.getElementById('hamburgerMenu').addEventListener('click', function() {
             body.classList.toggle('light-mode');
             updateThemeButtonText();
         }*/
+        window.currentLang = localStorage.getItem('preferredLang') || 'en';
 
         function toggleLanguage() {
-        currentLang = (currentLang === 'en') ? 'zh' : 'en';
-        localStorage.setItem('preferredLang', currentLang);
-        const langBtn = document.getElementById('langBtn');
-        if (langBtn) {
-            langBtn.textContent = (currentLang === 'en') ? "EN / 繁中" : "繁中 / EN";
-        }
+            // Reference it via window to be 100% safe
+            window.currentLang = (window.currentLang === 'en') ? 'zh' : 'en';
+            localStorage.setItem('preferredLang', window.currentLang);
+
+            const langBtn = document.getElementById('langBtn');
+            if (langBtn) {
+                langBtn.textContent = (window.currentLang === 'en') ? "EN / 繁中" : "繁中 / EN";
+            }
 
         const elements = document.querySelectorAll('[data-en]');
         elements.forEach(el => {
