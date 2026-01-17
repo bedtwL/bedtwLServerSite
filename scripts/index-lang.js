@@ -3,7 +3,7 @@ document.getElementById('hamburgerMenu').addEventListener('click', function() {
         document.getElementById('mobileNav').classList.toggle('active');
         });
 
-        let currentLang = 'en';
+        let currentLang = localStorage.getItem('preferredLang') || 'en';
 
         function updateThemeButtonText() {
             const themeBtn = document.getElementById('themeBtn');
@@ -24,6 +24,7 @@ document.getElementById('hamburgerMenu').addEventListener('click', function() {
 
         function toggleLanguage() {
         currentLang = (currentLang === 'en') ? 'zh' : 'en';
+        localStorage.setItem('preferredLang', currentLang);
         const langBtn = document.getElementById('langBtn');
         if (langBtn) {
             langBtn.textContent = (currentLang === 'en') ? "EN / 繁中" : "繁中 / EN";
