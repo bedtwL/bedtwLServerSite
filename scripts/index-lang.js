@@ -21,7 +21,6 @@ document.getElementById('hamburgerMenu').addEventListener('click', function() {
             body.classList.toggle('light-mode');
             updateThemeButtonText();
         }
-        let currentLang = 'en';
 
         function toggleLanguage() {
         currentLang = (currentLang === 'en') ? 'zh' : 'en';
