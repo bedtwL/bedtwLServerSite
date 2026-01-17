@@ -4,7 +4,8 @@ document.getElementById('hamburgerMenu').addEventListener('click', function() {
         });
 
         let currentLang = localStorage.getItem('preferredLang') || 'en';
-
+        /// REPEATED ON MAIN.JS, R4Q8 TOO DUMB by bedtwL
+/*
         function updateThemeButtonText() {
             const themeBtn = document.getElementById('themeBtn');
             const isLight = document.body.classList.contains('light-mode');
@@ -20,7 +21,7 @@ document.getElementById('hamburgerMenu').addEventListener('click', function() {
             const body = document.body;
             body.classList.toggle('light-mode');
             updateThemeButtonText();
-        }
+        }*/
 
         function toggleLanguage() {
         currentLang = (currentLang === 'en') ? 'zh' : 'en';
