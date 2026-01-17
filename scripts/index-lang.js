@@ -45,7 +45,9 @@
         });
         updateThemeButtonText();
         }
+        /// FUCK WHO ADD THIS ERROR CODE
+        /*
         document.getElementById('hamburgerMenu').addEventListener('click', function() {
                 this.classList.toggle('active');
                 document.getElementById('mobileNav').classList.toggle('active');
-                });
+                });*/
