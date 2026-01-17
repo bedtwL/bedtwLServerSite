@@ -1,4 +1,4 @@
-.stats-input {
+        .stats-input {
             width: 400px;
             padding: 5px;
             font-size: 15px;
@@ -32,9 +32,9 @@
 
         .search-card {
             background: rgba(255, 255, 255, 0.05);
-            padding: 40px;
-            border-radius: 45px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+            padding: 20px;
+            border-radius: 35px;
+            box-shadow: 0 15px 35=px rgba(0,0,0,0.5);
             border: 1px solid rgba(255,255,255,0.1);
             backdrop-filter: blur(20px);
         }
@@ -53,7 +53,7 @@
         }
 
         .stats-input:focus {
-            border-color: #ffffff;
+            border-color: #4CAF50;
             width: 380px;
         }
 
@@ -64,17 +64,16 @@
             font-weight: bold;
             border: none;
             border-radius: 12px;
-            background: linear-gradient(135deg, #000000, #ff0000);
+            background: linear-gradient(135deg, #4CAF50, #2E7D32);
             color: white;
             cursor: pointer;
-            transform: scale(1.05);
-            box-shadow: 0 4px 15px rgba(175, 76, 76, 0.3);
+            transition: 0.3s;
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
         }
 
         .stats-submit:hover {
-            background: linear-gradient(135deg, #ff0000, #000000);
             transform: scale(1.05);
-            box-shadow: 0 6px 20px rgba(175, 76, 76, 0.4);
+            box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
         }
 
         #result {
@@ -94,8 +93,7 @@
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
             border: none;
         }
-        .light-mode .control-btn { color: #333; border-color: #ccc;
-        }
+        .light-mode .control-btn { color: #333; border-color: #ccc; }
 
         h1 {
         margin-top: 00px;

@@ -10,48 +10,41 @@
     <title>bedtwL Minecraft Server</title>
     </head>
 
-    <body>
+        <body>
         <div id="navbar" class="navbar">
             <div class="nav-brand">
                 <img src="b.png" class="nav-logo">
                 <div class="nav-name">bedtw<span class="highlight">L</span> Server</div>
             </div>
 
-                <div class="nav-right">
-                    <div class="nav-controls">
-                        <button class="control-btn" onclick="location.href='/'" id="homeBtn" data-en="Home" data-zh="首頁">Home</button>
-                        <button class="control-btn" onclick="location.href='/stats.html'" id="statsBtn" data-en="Stats" data-zh="統計">Stats</button>
-                        <button class="control-btn" onclick="toggleLanguage()" id="langBtn">EN/繁中</button>
-                        <button class="control-btn" onclick="toggleTheme()" id="themeBtn"
-                                data-en-dark="🌙 Dark"
-                                data-zh-dark="🌙 深色"
-                                data-en-light="☀️ Light"
-                                data-zh-light="☀️ 淺色">
-                            🌙 Dark
-                        </button>
-                    </div>
+            <div class="nav-right">
+                <div class="nav-controls">
+                    <button class="control-btn" onclick="location.href='/'" id="homeBtn" data-en="Home" data-zh="首頁">Home</button>
+                    <button class="control-btn" onclick="location.href='/stats.html'" id="statsBtn" data-en="Stats" data-zh="統計">Stats</button>
+                    <button class="control-btn" onclick="toggleLanguage()" id="langBtn">EN/繁中</button>
+                    <button class="control-btn" onclick="toggleTheme()" id="themeBtn"
+                            data-en-dark="🌙 Dark"
+                            data-zh-dark="🌙 深色"
+                            data-en-light="☀️ Light"
+                            data-zh-light="☀️ 淺色">
+                        🌙 Dark
+                    </button>
                 </div>
             </div>
+        </div>
         <div class="container_stats">
             <div class="search-card">
                 <h1  data-en="Player Stats" data-zh="玩家統計數據">Player stats</h1>
                 <form id="statsform">
-                    <input 
-                    class="stats-input" 
-                    id="stats" 
-                    type="text"
-                    placeholder="Enter Minecraft Username or UUID"
-                    pattern="[a-zA-Z0-9_]+"
-                    autocomplete="username"
-                    aria-describedby="username-hint">
-                    <input type="submit" value="❌" class="stats-submit">
+                    <input class="stats-input" id="stats" type="text" placeholder="Input player name or uuid">
+                    <input type="submit" value="Submit" class="stats-submit">
                 </form>
                 <div id="result" data-en="Sorry, But You CAN'T search player now, bcs API NOT working~" data-zh="很抱歉，現在無法搜尋玩家，因為 API 尚未連線">
                     Sorry, But You CAN'T search player now, bcs API NOT working~
                 </div>
             </div>
         </div>
-    </body>
+        </body>
 
         <script>
 
