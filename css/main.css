@@ -145,33 +145,30 @@
         }
 
         .server-ip {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('/picture/image.png');
-        background-size: auto;
-        background-position: center;
-        border: 2px solid var(--card-border);
+        background: var(--card-bg);
+        border: 1px solid var(--card-border);
         border-radius: 16px;
         padding: 25px;
         display: flex;
         flex-direction: column;
         align-items: center;
+        backdrop-filter: blur(10px);
         margin-bottom: 60px;
         transition: var(--transition);
         }
 
-        .server-ip:hover { 
-            border-color: rgb(75, 75, 75); 
-        }
+        .server-ip:hover { border-color: rgb(75, 75, 75); }
 
         .server-ip p {
         margin: 0 0 15px 0;
         font-size: 1.5rem;
-        color: var(--text-main);
+        color: #fff;
         letter-spacing: 2px;
         }
 
         .copy-btn {
-        background: rgba(255, 0, 0, 0.219);
-        color: rgba(255, 255, 255, 0.548);
+        background: var(--accent-color);
+        color: white;
         border: none;
         padding: 12px 40px;
         border-radius: 8px;
@@ -182,8 +179,6 @@
         }
 
         .copy-btn:hover {
-        background: rgb(255, 0, 0);
-        color: rgb(255, 255, 255);
         transform: translateY(-2px);
         filter: brightness(1.2);
         }
