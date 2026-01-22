@@ -50,6 +50,45 @@
         gap: 12px;
         }
 
+        .nav-link {
+        position: fixed;
+        background: transparent;
+        border: none;
+        color: var(--text-main);
+        font-size: 1.2rem;
+        font-weight: 600;
+        text-decoration: none;
+        display: inline-block;
+        padding: 8px 12px;
+        position: relative;
+        transition: all 0.3s ease;
+        left:890px;
+        right:890px;
+        }
+
+
+        .nav-link:hover {
+        color: rgb(255, 73, 73);
+        }
+
+        .nav-link::after {
+        content: "";
+        position: absolute;
+        left: 0;
+        bottom: 0;
+        width: 100%;
+        height: 2px;
+        background-color: #3b82f6;
+        transform: scaleX(0);
+        transform-origin: left;
+        transition: transform 600ms ease-in-out;
+        }
+
+
+        .nav-link:hover::after {
+        transform: scaleX(1);
+        }
+
         .nav-logo {
         width: 60px;
         height: 60px;
@@ -66,6 +105,7 @@
         display: flex;
         gap: 10px;
         }
+
 
         .control-btn {
         background: var(--card-bg);
@@ -111,11 +151,28 @@
             border-radius: 10px;
         }
 
-
         .container {
         max-width: 1100px;
         margin: 0 auto;
-        padding: 60px 20px;
+        padding: -10px 20px;
+        }
+
+        .float {
+        text-align: center;
+        padding: 5rem 1rem;
+        }
+
+        .float-title {
+        animation: float 2s ease-in-out infinite;
+        }
+
+        @keyframes float {
+          0%, 100% {
+            transform: translateY(10);
+          }
+          50% {
+            transform: translateY(-25px);
+          }
         }
 
         h1 {
@@ -162,7 +219,7 @@
         .server-ip p {
         margin: 0 0 15px 0;
         font-size: 1.5rem;
-        color: #fff;
+        color: var(--text-main);
         letter-spacing: 2px;
         }
 
@@ -238,7 +295,6 @@
         }
 
         li strong { color: var(--text-main); }
-
         .rank-manager { color: #f1c40f !important; }
         .rank-retiredmanager { color: #e67e22 !important; }
         .rank-admin { color: #ff4b4b !important; }

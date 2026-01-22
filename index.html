@@ -15,11 +15,11 @@
         <div class="nav-brand">
             <img src="b.png" class="nav-logo">
             <div class="nav-name">bedtw<span class="highlight">L</span> Server</div>
+            <button class="nav-link" onclick="location.href='/'" id="homeBtn" data-en="Home" data-zh="首頁">Home</button>
+            <button class="nav-link" onclick="location.href='/stats.html'">Stats</button>
         </div>
         <div class="nav-right">
             <div class="nav-controls">
-                <button class="control-btn" onclick="location.href='/'" id="homeBtn" data-en="Home" data-zh="首頁">Home</button>
-                <button class="control-btn" onclick="location.href='/stats.html'">Stats</button>
                 <button class="control-btn" onclick="toggleLanguage()" id="langBtn">EN/繁中</button>
                 <button class="control-btn" onclick="toggleTheme()" id="themeBtn"
                         data-en-dark="🌙 Dark"
@@ -31,12 +31,14 @@
             </div>
         </div>
     </div>
-    <div class="container">
+    <div class="float-title">
         <h1 id="mainTitle"
             data-en='Welcome to bedtw<span class="highlight">L</span> Server'
             data-zh='歡迎來到 bedtw<span class="highlight">L</span> 伺服器'>
             Welcome to bedtw<span class="highlight">L</span> Server
         </h1>
+    </div>
+    <div class="container">
         <p id="mainSubtitle"
            data-en="Explore exciting game modes: Free-for-All and SMP worlds."
            data-zh="探索令人興奮的遊戲模式：自由大亂鬥與 SMP 生存世界。">
