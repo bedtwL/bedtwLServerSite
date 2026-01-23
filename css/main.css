@@ -46,8 +46,10 @@
 
         .nav-brand {
         display: flex;
+        justify-content: center;
         align-items: center;
-        gap: 12px;
+        height: 100px;
+        text-align: center;
         }
 
         .nav-link {
@@ -58,14 +60,21 @@
         font-size: 1.2rem;
         font-weight: 600;
         text-decoration: none;
-        display: inline-block;
-        padding: 8px 12px;
+        padding: 10px 20px;
         position: relative;
         transition: all 0.3s ease;
-        left:890px;
-        right:890px;
+        margin: 0 auto;
+        width: max-content;
+        display: block;
         }
 
+        .nav-container {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100px;
+        text-align: center;
+        }
 
         .nav-link:hover {
         color: rgb(255, 73, 73);
