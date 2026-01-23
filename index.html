@@ -6,7 +6,6 @@
         <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Montserrat:wght@800&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="/css/main.css">
         <script src="/scripts/main.js"></script>
-        <script src="/scripts/index-lang.js"></script>
         <title>bedtwL Minecraft Server</title>
     </head>
     <body>
@@ -19,7 +18,8 @@
         <div class="nav-center">
             <div class="nav-container">
                 <button class="nav-link" onclick="location.href='/'" id="homeBtn" data-en="Home" data-zh="首頁">Home</button>
-                <button class="nav-link" onclick="location.href='/stats.html'">Stats</button>
+                <button class="nav-link" onclick="location.href='/stats.html'" id="statsBtn">Stats</button>
+
             </div>
         </div>
         <div class="nav-right">
@@ -195,5 +195,12 @@
             </div>
         </div>
     </div>
+    <div id="cookie-notice" class="cookie-notice">
+        <p>
+            本網站使用 Cookies 以記住語言與主題設定，提供更好的使用體驗。
+        </p>
+        <button onclick="acceptCookies()">了解並關閉</button>
+    </div>
+
     </body>
     </html>

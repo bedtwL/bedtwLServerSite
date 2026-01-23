@@ -15,8 +15,13 @@
             <div class="nav-brand">
                 <img src="b.png" class="nav-logo">
                 <div class="nav-name">bedtw<span class="highlight">L</span> Server</div>
-                <button class="nav-link" onclick="location.href='/'" id="homeBtn" data-en="Home" data-zh="首頁">Home</button>
-                <button class="nav-link" onclick="location.href='/stats.html'">Stats</button>
+            </div>
+            <div class="nav-center">
+                <div class="nav-container">
+                    <button class="nav-link" onclick="location.href='/'" id="homeBtn" data-en="Home" data-zh="首頁">Home</button>
+                    <button class="nav-link" onclick="location.href='/stats.html'" id="statsBtn">Stats</button>
+
+                </div>
             </div>
             <div class="nav-right">
                 <div class="nav-controls">
@@ -34,55 +39,15 @@
         <div class="container_stats">
             <div class="search-card">
                 <h1  data-en="Player Stats" data-zh="玩家統計數據">Player stats</h1>
-                <form id="statsform">
-                    <input class="stats-input" id="stats" type="text" placeholder="Input player name or uuid">
+                <form id="statsForm">
+                    <label for="stats"></label><input class="stats-input" id="stats" type="text" placeholder="Input player name or uuid to search.">
                     <input type="submit" value="Submit" class="stats-submit">
                 </form>
-                <div id="result" data-en="Sorry, But You CAN'T search player now, bcs API NOT working~" data-zh="很抱歉，現在無法搜尋玩家，因為 API 尚未連線">
-                    Sorry, But You CAN'T search player now, bcs API NOT working~
+                <div id="result" data-en="Sorry, But You CAN'T search player now, because is API NOT working~" data-zh="很抱歉，現在無法搜尋玩家，因為 API 無法連線">
+                    Sorry, But You CAN'T search player now, because is API NOT working~
                 </div>
             </div>
         </div>
         </body>
 
-        <script>
-
-
-            let currentLang = 'en';
-
-            function toggleLanguage() {
-            currentLang = (currentLang === 'en') ? 'zh' : 'en';
-            const langBtn = document.getElementById('langBtn');
-            langBtn.innerText = (currentLang === 'en') ? "EN / 繁中" : "繁中 / EN";
-            const elements = document.querySelectorAll('[data-en]');
-            elements.forEach(el => {
-                const newText = (currentLang === 'zh') ? el.getAttribute('data-zh') : el.getAttribute('data-en');
-                if (newText.includes('<')) {
-                    el.innerHTML = newText;
-                } else {
-                    el.innerText = newText;
-                }
-            });
-            updateThemeButtonText();
-        }
-
-        function updateThemeButtonText() {
-            const themeBtn = document.getElementById('themeBtn');
-            const isLight = document.body.classList.contains('light-mode');
-            const mode = isLight ? 'light' : 'dark';
-
-            const newText = themeBtn.getAttribute(`data-${currentLang}-${mode}`);
-            if (newText) {
-                themeBtn.innerText = newText;
-            }
-        }
-
-        function toggleTheme() {
-            const body = document.body;
-            body.classList.toggle('light-mode');
-            updateThemeButtonText();
-        }
-        </script>
-        
-    </body>
 </html>
