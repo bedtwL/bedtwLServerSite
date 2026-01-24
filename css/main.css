@@ -16,9 +16,9 @@
 
 body.light-mode {
         --bg-color: #f5f5f7;
-        --card-bg: rgba(0, 0, 0, 0.05);
-        --card-bg-hover: rgba(0, 0, 0, 0.1);
-        --card-border: rgba(0, 0, 0, 0.1);
+        --card-bg: rgba(255, 255, 255, 0.05);
+        --card-bg-hover: rgba(255, 255, 255, 0.1);
+        --card-border: rgba(255, 255, 255, 0.1);
         --text-main: #1d1d1f;
         --text-dim: #484848;
         body.light-mode {
@@ -83,8 +83,9 @@ body {
 }
 .nav-center {
         position: absolute;
-        left: 50%;
-        right: 50%;
+        display: flex;
+        left: 40%;
+        right: 60%;
 }
 
 .nav-container {
@@ -180,41 +181,41 @@ body {
 }
 
 .container {
-        max-width: 1100px;
-        margin: 0 auto;
-        padding: -10px 20px;
+    max-width: 1100px;
+    margin: 0 auto;
+    padding: 40px 20px;
 }
 
 .float {
-        text-align: center;
-        padding: 5rem 1rem;
+    text-align: center;
+    padding: 5rem 1rem;
 }
 
 .float-title {
-        animation: float 2s ease-in-out infinite;
+    animation: float 2s ease-in-out infinite;
 }
 
 @keyframes float {
-        0%, 100% {
-                transform: translateY(10px);
-        }
-        50% {
-                transform: translateY(-25px);
-        }
+    0%, 100% {
+        transform: translateY(10px);
+    }
+    50% {
+        transform: translateY(-25px);
+    }
 }
 
 h1 {
-        margin-top: 100px;
-        animation-name: slideUp;
-        animation-duration: 1s;
-        animation-timing-function: ease-out;
-        animation-fill-mode: forwards;
-        font-family: 'Montserrat', sans-serif;
-        font-size: 3rem;
-        text-align: center;
-        letter-spacing: -1px;
-        margin-bottom: 10px;
-        text-transform: uppercase;
+    margin-top: 100px;
+    animation-name: slideUp;
+    animation-duration: 1s;
+    animation-timing-function: ease-out;
+    animation-fill-mode: forwards;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 3rem;
+    text-align: center;
+    letter-spacing: -1px;
+    margin-bottom: 10px;
+    text-transform: uppercase;
 }
 
 .highlight {
@@ -276,18 +277,18 @@ p {
 }
 
 .server-item {
+        background: var(--card-bg);
         border: 1px solid var(--card-border);
         border-radius: 20px;
         padding: 30px;
-        transition: all 0.3s cubic-bezier(0.5, 1, 1, 1);
+        transition: var(--transition);
         display: flex;
         flex-direction: column;
 }
 
 .server-item:hover {
-        background-image: linear-gradient(rgb(0, 0, 0), rgba(0, 0, 0, 0)), var(--hover-bg);
-        transform: translateY(-10px) translateX(-5px) scale(1.05);
-        background-position: center;
+        transform: translateY(-10px);
+        background: rgba(255, 255, 255, 0.05);
         border-color: rgb(75, 75, 75);
 }
 
