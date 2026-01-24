@@ -192,7 +192,7 @@ body {
 
 .float {
     text-align: center;
-    padding: 5rem 1rem;
+    padding: 3rem 1rem;
 }
 
 .float-title {
@@ -218,7 +218,7 @@ h1 {
     font-size: 3rem;
     text-align: center;
     letter-spacing: -1px;
-    margin-bottom: 10px;
+    margin-bottom: -25px;
     text-transform: uppercase;
 }
 
