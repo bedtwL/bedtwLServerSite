@@ -50,17 +50,26 @@ body {
 }
 
 .navbar {
-        height: 70px;
-        border-bottom: 2px solid #ffffff44;
-        backdrop-filter: blur(20px);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        max-width: 1250px;
+        margin: 0 auto;
+        width: 100%;
+        border-bottom: 4px solid #ffffff44;
+        background-color: rgba(41, 41, 56, 0.3);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+        border-radius: 75px;
+        overflow: visible;
+        box-shadow: 0 0px 12px rgba(0, 0, 0, 0.2);
+        transition: box-shadow 0.2s;
+        backdrop-filter: blur(8px);
         position: sticky;
         top: 0;
-        z-index: 100;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0 40px;
+        z-index: 120;
         box-sizing: border-box;
+        padding: 0.5rem 1.5rem;
+        height: 75px;
 }
 
 .nav-brand {
@@ -88,8 +97,8 @@ body {
 .nav-center {
         position: absolute;
         display: flex;
-        left: 46%;
-        right: 45%;
+        left: 43%;
+        right: 44%;
 }
 
 .nav-container {
