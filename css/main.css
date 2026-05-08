@@ -1,8 +1,10 @@
 /* Recode main styles (simplified) */
-:root{--bg:#050505;--text:#fff;--muted:#b0b0b0;--link:#19d7fc}
+:root{--bg:#050505;--text:#fff;--muted:#b0b0b0;--link:#19d7fc;--highlight:rgb(255, 73, 73);--highlight-shadow:rgb(255,72,72)}
 body{margin:0;font-family:Inter,system-ui,Arial;background:var(--bg);color:var(--text)}
 .nav-link{color:var(--text);text-decoration:none;font-weight:600;padding:8px 12px;border-radius:8px;transition:background 0.2s}
 .nav-link-colored{color:var(--link)}
+.logo{width: 32px;height: 32px;}
+.highlight {color:var(--highlight);text-shadow:0 0 20px var(--highlight-shadow);}
 .nav-link:hover{background:rgba(255,255,255,0.03)}
 .icon-btn{background:transparent;background-color:transparent;border: none;border:0;padding:6px;border-radius:8px;cursor:pointer}
 .icon-btn img{display:block;opacity:0.9}
