@@ -1,190 +1,66 @@
-    <!DOCTYPE html>
-    <html lang="en" xmlns="http://www.w3.org/1999/html">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&family=Montserrat:wght@800&display=swap" rel="stylesheet">
-        <link rel="stylesheet" href="/css/main.css">
-        <script src="/scripts/main.js"></script>
-        <title>bedtwL Minecraft Server</title>
-    </head>
-    <header>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>bedtwL Server — Recode</title>
+  <link rel="stylesheet" href="css/main.css">
+  <link rel="stylesheet" href="css/liquid-glass.css">
+</head>
+<body>
+  <header class="site-header">
+    <nav class="navbar">
+      <div class="brand">
+        <img src="/b.png" alt="logo" class="logo">
+        <div class="brand-name">bedtw<span class="highlight">L</span> Server</div>
+      </div>
+      <div class="nav-actions">
+        <a class="nav-link" href="/">Home</a>
+      </div>
+      <div class="nav-controls">
+        <button id="lang" class="icon-btn" aria-label="Language switch"><img src="icons/lang.svg" alt="文&A" width="24" height="24"></button>
+      </div>
+    </nav>
+  </header>
 
-    <div id="navbar" class="navbar">
-        <div class="nav-brand">
-            <img src="b.png" class="nav-logo">
-            <div class="nav-name">bedtw<span class="highlight">L</span> Server</div>
-        </div>
-        <div class="nav-center">
-            <div class="nav-container">
-                <button class="nav-link" onclick="location.href='/'" id="homeBtn" data-en="Home" data-zh="首頁">Home</button>
-                <button class="nav-link" onclick="location.href='/stats.html'" id="statsBtn" data-en="Stats" data-zh="戰績">Stats</button>
-            </div>
-        </div>
-        <div class="nav-right">
-            <div class="nav-controls">
-                <button class="control-btn" onclick="toggleLanguage()" id="langBtn">EN/繁中</button>
-                <button class="control-btn" onclick="toggleTheme()" id="themeBtn"
-                        data-en-dark="🌙 Dark"
-                        data-zh-dark="🌙 深色"
-                        data-en-light="☀️ Light"
-                        data-zh-light="☀️ 淺色">
-                    🌙 Dark
-                </button>
-            </div>
-        </div>
-    </div>
-    <div class="float-title">
-        <h1 id="mainTitle"
-            data-en='Welcome to bedtw<span class="highlight">L</span> Server'
-            data-zh='歡迎來到 bedtw<span class="highlight">L</span> 伺服器'>
-            Welcome to bedtw<span class="highlight">L</span> Server
-        </h1>
-    </div>
-    <div class="container">
-        <p id="mainSubtitle"
-           data-en="Explore exciting game modes: Free-for-All and SMP worlds."
-           data-zh="探索令人興奮的遊戲模式：自由大亂鬥與 SMP 生存世界。">
-            Explore exciting game modes: Free-for-All and SMP worlds.
-        </p>
+  <main class="container">
+    <section class="hero">
+      <h1>Welcome to bedtw<span class="highlight">L</span> Server — Recode</h1>
+      <p>FFA retained. Other servers are being updated to V3 and will return soon.</p>
+      <div class="server-ip">bedtwL.com <button id="copy" class="nav-link icon-btn">Copy</button></div>
+    </section>
 
-        <div class="server-ip">
-            <p><strong id="ipLabel" data-en="Server IP : bedtwL.com" data-zh="伺服器 IP : bedtwL.com">Server IP : bedtwL.com</strong></p>
-            <button class="copy-btn" onclick="copyIP()" id="copyBtn" data-en="Click To Copy IP" data-zh="點擊複製 IP">Click To Copy IP</button>
-        </div>
+    <section id="modes" class="modes">
+      <article class="card">
+        <h2>FFA: Ultimate PvP Experience</h2>
+        <p>Fast-paced combat, custom maps and hotbar loadouts.</p>
+      </article>
+    </section>
 
-        <div class="server-list">
-            <div class="server-item">
-                <h2 id="ffaTitle" data-en="FFA: Ultimate PvP Experience" data-zh="FFA: 極致 PvP 體驗">FFA: Ultimate PvP Experience</h2>
-                <p id="ffaDesc" data-en="Engage in thrilling PvP combat with these exciting features:" data-zh="參與刺激的 PvP 戰鬥，享受以下特色：">Engage in thrilling PvP combat with these exciting features:</p>
-                <ul>
-                    <li id="ffaLi1" data-en="<strong>Hotbar Customization:</strong> Tailor your loadout to suit your playstyle." data-zh="<strong>快捷列自定義:</strong> 根據你的風格調整裝備。"><strong>Hotbar Customization:</strong> Tailor your loadout to suit your playstyle.</li>
-                    <li id="ffaLi2" data-en="<strong>Iconic Maps:</strong> Fight on maps inspired by Hypixel's Bedwars." data-zh="<strong>經典地圖:</strong> 在受 Hypixel Bedwars 啟發的地圖上戰鬥。"><strong>Iconic Maps:</strong> Fight on maps inspired by Hypixel's Bedwars.</li>
-                    <li id="ffaLi3" data-en="<strong>Dynamic Gameplay:</strong> Enjoy regular map rotations for endless variety." data-zh="<strong>動態玩法:</strong> 享受定期輪換的地圖，保持新鮮感。"><strong>Dynamic Gameplay:</strong> Enjoy regular map rotations for endless variety.</li>
-                    <li id="ffaLi4" data-en="<strong>Explosive Combat:</strong> Use fireballs to obliterate your opponents." data-zh="<strong>爆炸性戰鬥:</strong> 使用火球摧毀你的對手。"><strong>Explosive Combat:</strong> Use fireballs to obliterate your opponents.</li>
-                    <li id="ffaLi5" data-en="<strong>Paintgun Action:</strong> Add a splash of color to the battlefield." data-zh="<strong>油漆槍大戰:</strong> 為戰場增添色彩。"><strong>Paintgun Action:</strong> Add a splash of color to the battlefield.</li>
-                </ul>
-            </div>
+    <section id="staff">
+      <h2>Staff</h2>
+      <ul>
+        <li><strong>Owner:</strong> <span class="player">bedtwL</span></li>
+        <li><strong>Manager:</strong> <span class="player">UnlimitFPS</span></li>
+        <li><strong>Developer:</strong> <span class="player">Itsglobally</span></li>
+      </ul>
+    </section>
 
-            <div class="server-item">
-                <h2 id="smp1Title" data-en="SMP1: Vanilla Survival" data-zh="SMP1: 純淨生存">SMP1: Vanilla Survival</h2>
-                <p id="smp1Desc" data-en="Embrace the classic Minecraft experience:" data-zh="擁抱經典的 Minecraft 體驗：">Embrace the classic Minecraft experience:</p>
-                <ul>
-                    <li id="smp1Li1" data-en="<strong>Pure Gameplay:</strong> No plugins (except core), just pure survival." data-zh="<strong>純粹玩法:</strong> 無外掛插件（核心除外），只有純粹生存。"><strong>Pure Gameplay:</strong> No plugins (except core), just pure survival.</li>
-                    <li id="smp1Li2" data-en="<strong>Community Driven:</strong> Build, explore, and thrive together." data-zh="<strong>社群驅動:</strong> 共同建造、探索與茁壯。"><strong>Community Driven:</strong> Build, explore, and thrive together.</li>
-                    <li id="smp1Li3" data-en="<strong>Timeless Adventure:</strong> Rediscover the original charm of Minecraft." data-zh="<strong>永恆冒險:</strong> 重新發現 Minecraft 的原始魅力。"><strong>Timeless Adventure:</strong> Rediscover the original charm of Minecraft.</li>
-                </ul>
-            </div>
+    <section id="modes" class="modes">
+      <h2>News</h2>
+      <article class="card">
+        <h2>V2: Discord server deleting soon</h2>
+        <p>Our old discord server will be deleted on 2025/05/10 UTC+9 20:00.</p>
+        <p>New Discord: <a href="https://discord.gg/A9XQVRtSTq" class="nav-link nav-link-colored">here</a></p>
+      </article>
+    </section>
+  </main>
 
-            <div class="server-item">
-                <h2 id="smp5Title" data-en="SMP5: Endless Survival" data-zh="SMP5: 無盡生存">SMP5: Endless Survival</h2>
-                <p id="smp5Desc" data-en="Challenge yourself with extended survival features:" data-zh="挑戰更豐富的生存特色：">Challenge yourself with extended survival features:</p>
-                <ul>
-                    <li id="smp5Li1" data-en="<strong>Extended Enchantments:</strong> Upgrade your gear beyond limits." data-zh="<strong>進階附魔:</strong> 將你的裝備升級超越極限。"><strong>Extended Enchantments:</strong> Upgrade your gear beyond limits.</li>
-                    <li id="smp5Li2" data-en="<strong>Custom Challenges:</strong> Face unique gameplay twists." data-zh="<strong>自訂挑戰:</strong> 面對獨特的遊戲轉折。"><strong>Custom Challenges:</strong> Face unique gameplay twists.</li>
-                    <li id="smp5Li3" data-en="<strong>Endless Adventures:</strong> A survival experience without The End." data-zh="<strong>無盡冒險:</strong> 沒有終界限制的生存體驗。"><strong>Endless Adventures:</strong> A survival experience without The End.</li>
-                </ul>
-            </div>
-        </div>
-    </div>
+  <footer class="site-footer">
+    <p>&copy; bedtwL Server</p>
+    <p><a href="https://discord.gg/A9XQVRtSTq" class="nav-link nav-link-colored">Discord</a></p>
+  </footer>
 
-    <div class="container" id="staff-section-container">
-        <h1 id="staffMainTitle" data-en='Server <span class="highlight">Staff</span>' data-zh='伺服器<span class="highlight">人員</span>'>Server <span class="highlight">Staff</span></h1>
-        <p id="staffSubtitle" data-en="Server Staff List (Hover for info)" data-zh="伺服器人員名單 (將滑鼠移到名字上查看詳細資訊)">Server Staff List (Hover for info)</p>
-        <div style="display: flex; justify-content: center; margin-top: 30px;">
-            <ul style="text-align: left;">
-                <li>
-                    <strong style="color: #f1c40f;">Owner</strong> —
-                    <span class="player-name"
-                          id="owner"
-                          data-ign="BedtwL"
-                          data-rank="伺服器擁有者"
-                          data-skill="伺服器主機架設、寫伺服器插件、不會發薪水、絕區零沉迷者"
-                          style="--rank-color: #f1c40f;">bedtwL</span>
-                </li>
-
-                <li>
-                    <strong style="color: #e67e22;">RetiredManager</strong> —
-                    <span class="player-name"
-                          id="Rmanager"
-                          data-ign="UnlimitFPS"
-                          data-rank="伺服器擁有者"
-                          data-skill="伺服器管理、寫伺服器插件、McProCraft服主、會寫音樂機器人"
-                          style="--rank-color: #e67e22;">UnlimitFPS</span>
-                </li>
-
-                <li>
-                    <strong style="color: #ff4b4b;">Admin</strong> —
-                    <span class="player-name" id="adminLi1" data-ign="r4q8" data-rank="總管理員" data-skill="Bug 修復、權限控管、伺服器性能優化、網站設計" style="--rank-color: #ff4b4b;">r4q8</span>、
-                    <span class="player-name" id="adminLi3" data-ign="miniblack_tw" data-rank="技術管理員" data-skill="Blackpvp Network服主、插件處理、伺服器優化" style="--rank-color: #ff4b4b;">miniblack_tw</span>
-                </li>
-
-                <li>
-                    <strong style="color: #9b59b6;">Developer</strong> —    
-                    <span class="player-name"
-                          id="developer"
-                          data-ign="scrcpy"
-                          data-rank="伺服器擁有者"
-                          data-skill="CircleNetwork服主、BlueArchive沉迷者"
-                          style="--rank-color: #9b59b6;">scrcpy</span>
-                </li>
-
-                <li>
-                    <strong style="color: #206694;">Builder</strong> —
-                    <span class="player-name"
-                          id="builderLi1"
-                          data-ign="MeowiRoku"
-                          data-rank="建築師"
-                          data-skill="大廳設計、PureFFA 地圖製作"
-                          style="--rank-color: #206694;">MeowiRoku</span>、
-                    <span class="player-name"
-                          id="builderLi3"
-                          data-ign="RealRWalone"
-                          data-rank="建築團隊"
-                          data-skill="大廳設計、偶爾上線"
-                          style="--rank-color: #206694;">RealRWAlone</span>、
-                    <span class="player-name"
-                          id="builderLi4"
-                          data-ign="amiaoy_tw"
-                          data-rank="建築團隊"
-                          data-skill="FFA地圖製作"
-                          style="--rank-color: #206694;">amiaoy_tw</span>、
-                    <span class="player-name"
-                          id="builderLi5"
-                          data-ign="Vip_plus"
-                          data-rank="建築團隊"
-                          data-skill="FFA地圖製作"
-                          style="--rank-color: #206694;">Vip_plus</span>、
-                </li>
-
-                <li>
-                    <strong style="color: #2ecc71;">Moderator</strong> —
-                    <span class="--rank-color"
-                          id="moderatorLi1"
-                          style="--rank-color: #2ecc71;">NULL</span>
-                </li>
-
-                <li>
-                    <p>no :D</p>
-                </li>
-
-            </ul>
-        </div>
-        <div class="container" id="news-section">
-            <h1 data-en='New<span class="highlight">s</span>' data-zh='最新<span class="highlight">消息</span>'>New<span class="highlight">s</span></h1>
-            <p id="newsDesc" data-en="The news for new feature or server status" data-zh="關於伺服器狀態與最新消息">The news for new feature or server status</p>
-            <div class="server-list full-width-card">
-                <div class="server-item">
-                    <p id="newsNote" data-en="We are preparing v3 version server in the future d(`･∀･)b" data-zh="我們正在準備V3伺服器 d(`･∀･)b" style="text-align: center; margin: 10px 0;">We are preparing v3 version server in the future d(`･∀･)b</p>
-                    <p style="text-align: center; margin: 10px 0;" id="discordLink" data-en='Check out <a href="https://dsc.gg/bedtwL">Our Discord Server</a>' data-zh='加入我們的 <a href="https://dsc.gg/bedtwL">Discord 伺服器</a>'>Check out <a href="https://dsc.gg/bedtwL">Our Discord Server</a></p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div id="cookie-notice" class="cookie-notice">
-        <p data-en='This website uses cookies to remember language and theme settings to provide a better user experience.'
-           data-zh='本網站使用 Cookies 以記住語言與主題設定，提供更好的使用體驗。'>This website uses cookies to remember language and theme settings to provide a better user experience.
-        </p>
-        <button onclick="acceptCookies()" data-en="Done" data-zh="了解並關閉">Done</button>
-    </div>
-    </header>
+  <script src="/scripts/main.js"></script>
+</body>
+</html>
