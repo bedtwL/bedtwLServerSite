@@ -20,5 +20,6 @@ body{margin:0;font-family:Inter,system-ui,Arial;background:var(--bg);color:var(-
 .server-status{display:flex;align-items:center;gap:8px;padding:6px 8px;border-radius:8px}
 .player-count{padding:6px 8px;border-radius:8px;background:rgba(255,255,255,0.02)}
 .ip-container{display:flex;gap:8px;align-items:center} 
-.copy-success{background:linear-gradient(90deg,#3bd671,#2ab56b)!important;color:#fff !important}
-.copy-anim{transition:background-color 0.25s, transform 0.12s}
+.icon-btn{background:transparent;border: none;border:0;padding:6px;border-radius:8px;cursor:pointer;transition:background-color 350ms ease, color 350ms ease, transform 120ms ease}
+.copy-success{background-color:#2ab56b !important;color:#fff !important}
+.copy-anim{transform:translateY(-1px)}
