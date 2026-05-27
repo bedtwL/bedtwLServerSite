@@ -15,4 +15,10 @@ body{margin:0;font-family:Inter,system-ui,Arial;background:var(--bg);color:var(-
 .brand{display:flex;gap:12px;align-items:center}
 .logo{width:56px;height:56px}
 .card{background:rgba(255,255,255,0.03);border-radius:16px;padding:20px;margin:16px 0}
-.server-ip{display:inline-flex;gap:10px;align-items:center;padding:8px 12px;background:rgba(255,255,255,0.03);border-radius:12px}
+.server-ip{display:inline-flex;gap:12px;align-items:center;padding:10px 14px;background:rgba(255,255,255,0.03);border-radius:12px}
+.status-dot{width:10px;height:10px;border-radius:50%;display:inline-block;margin-right:8px;background:#888}
+.server-status{display:flex;align-items:center;gap:8px;padding:6px 8px;border-radius:8px}
+.player-count{padding:6px 8px;border-radius:8px;background:rgba(255,255,255,0.02)}
+.ip-container{display:flex;gap:8px;align-items:center} 
+.copy-success{background:linear-gradient(90deg,#3bd671,#2ab56b)!important;color:#fff !important}
+.copy-anim{transition:background-color 0.25s, transform 0.12s}
