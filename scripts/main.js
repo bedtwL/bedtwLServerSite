@@ -1,5 +1,5 @@
 // minimal main.js kept
-const SERVER_API = '/api/status'; // expected to return { online: bool, players: number }
+const SERVER_API = 'https://api.mcsrvstat.us/2/bedtwL.com'; // fallback to public API if no local /api/status
 
 function setServerStatus(online){
   const dot = document.getElementById('status-dot');
