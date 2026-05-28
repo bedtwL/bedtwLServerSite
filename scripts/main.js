@@ -26,7 +26,7 @@ async function fetchServer(){
     if(!res.ok) throw new Error('bad');
     const j = await res.json();
     setServerStatus(!!j.online);
-    setPlayerCount(j.players||0);
+    setPlayerCount(j.players.online||0);
   }catch(e){
     setServerStatus(false);
     setPlayerCount(0);
