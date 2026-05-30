@@ -18,6 +18,7 @@
         <a class="nav-link" href="/">Home</a>
       </div>
       <div class="nav-controls">
+        <button id="theme-toggle" class="icon-btn" aria-label="Toggle theme">🌗</button>
         <!--<button id="lang" class="icon-btn" aria-label="Language switch"><img src="icons/lang.svg" alt="文&A" width="24" height="24"></button>
       --></div>
     </nav>
@@ -70,6 +71,10 @@
     <p><a href="https://discord.gg/A9XQVRtSTq" class="nav-link nav-link-colored">Discord</a></p>
   </footer>
 
+  <script>
+    // early apply preference to avoid flash
+    (function(){ try{ var p = localStorage.getItem('site-theme')||'system'; if(p==='light' || p==='dark') document.documentElement.setAttribute('data-theme', p); }catch(e){} })();
+  </script>
   <script src="/scripts/main.js"></script>
 </body>
 </html>
