@@ -65,11 +65,11 @@ function applyTheme(theme){
 }
 
 function toggleTheme(){
+  // Only toggle between light and dark when user presses the button.
   const cur = document.documentElement.getAttribute('data-theme');
   if(cur === 'light') applyTheme('dark');
-  else if(cur === 'dark') applyTheme('system');
   else applyTheme('light');
-  try{ localStorage.setItem('site-theme', document.documentElement.getAttribute('data-theme')||'system') }catch(e){}
+  try{ localStorage.setItem('site-theme', document.documentElement.getAttribute('data-theme')||'light') }catch(e){}
 }
 
 // attach listeners
