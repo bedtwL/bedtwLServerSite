@@ -79,4 +79,8 @@ window.addEventListener('load',()=>{
   // initial fetch and poll
   fetchServer();
   setInterval(fetchServer,10000);
+
+  // bind theme toggle button
+  const tbtn = document.getElementById('theme-toggle');
+  if(tbtn) tbtn.addEventListener('click', toggleTheme);
 });
