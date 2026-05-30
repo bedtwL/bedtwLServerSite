@@ -43,16 +43,17 @@ html[data-theme="light"] .modes .card,html[data-theme="light"] #news .card{box-s
 
 /* Make the copy button readable against both themes with a subtle border */
 #copy.icon-btn{
-  border: 1px solid rgba(255,255,255,0.06);
+  border: 1px solid var(--glass-border);
   background: rgba(255,255,255,0.02);
   padding: 6px 10px;
   border-radius: 8px;
   transition: background-color 160ms ease, transform 120ms ease, border-color 160ms ease;
+  color: inherit;
 }
 
-/* Light theme: stronger dark border so it separates from white background */
+/* Keep same border color in light theme as other glass elements */
 html[data-theme="light"] #copy.icon-btn{
-  border-color: rgba(0,0,0,0.12);
+  border: 1px solid var(--glass-border);
   background: rgba(0,0,0,0.03);
   color: var(--text);
 }
