@@ -40,3 +40,26 @@ body{margin:0;font-family:Inter,system-ui,Arial;background:var(--bg);color:var(-
 
 /* restore deeper border for light theme */
 html[data-theme="light"] .modes .card,html[data-theme="light"] #news .card{box-shadow:0 10px 30px rgba(16,24,32,0.08), inset 0 0 0 1px rgba(0,0,0,0.12)}
+
+/* Make the copy button readable against both themes with a subtle border */
+#copy.icon-btn{
+  border: 1px solid rgba(255,255,255,0.06);
+  background: rgba(255,255,255,0.02);
+  padding: 6px 10px;
+  border-radius: 8px;
+  transition: background-color 160ms ease, transform 120ms ease, border-color 160ms ease;
+}
+
+/* Light theme: stronger dark border so it separates from white background */
+html[data-theme="light"] #copy.icon-btn{
+  border-color: rgba(0,0,0,0.12);
+  background: rgba(0,0,0,0.03);
+  color: var(--text);
+}
+
+#copy.icon-btn:hover{ background: rgba(255,255,255,0.04) }
+#copy.icon-btn:active{ transform: translateY(1px) }
+#copy.icon-btn:focus{ outline: 2px solid var(--link); outline-offset: 2px }
+
+/* keep copy-success visual strong */
+#copy.icon-btn.copy-success{ background-color: #0a6b35 !important; border-color: rgba(0,0,0,0.12) !important }
