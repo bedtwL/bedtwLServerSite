@@ -62,5 +62,5 @@ html[data-theme="light"] #copy.icon-btn{
 #copy.icon-btn:active{ transform: translateY(1px) }
 #copy.icon-btn:focus{ outline: 2px solid var(--link); outline-offset: 2px }
 
-/* keep copy-success visual strong */
-#copy.icon-btn.copy-success{ background-color: #0a6b35 !important; border-color: var(--glass-border) !important }
+/* keep copy-success visual strong but do not change border color */
+#copy.icon-btn.copy-success{ background-color: #0a6b35 !important; border-color: inherit !important }
