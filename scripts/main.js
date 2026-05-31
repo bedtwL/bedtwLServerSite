@@ -54,7 +54,23 @@ function copyIP(){
   });
 }
 
-function toggleTheme(){document.body.classList.toggle('light-mode')}
+// theme switching: store preference in localStorage and toggle html[data-theme]
+function applyTheme(theme){
+  // theme: 'dark' | 'light' | 'system'
+  if(theme === 'system'){
+    document.documentElement.removeAttribute('data-theme');
+  } else {
+    document.documentElement.setAttribute('data-theme', theme);
+  }
+}
+
+function toggleTheme(){
+  // Only toggle between light and dark when user presses the button.
+  const cur = document.documentElement.getAttribute('data-theme');
+  if(cur === 'light') applyTheme('dark');
+  else applyTheme('light');
+  try{ localStorage.setItem('site-theme', document.documentElement.getAttribute('data-theme')||'light') }catch(e){}
+}
 
 // attach listeners
 window.addEventListener('load',()=>{
@@ -63,4 +79,8 @@ window.addEventListener('load',()=>{
   // initial fetch and poll
   fetchServer();
   setInterval(fetchServer,10000);
+
+  // bind theme toggle button
+  const tbtn = document.getElementById('theme-toggle');
+  if(tbtn) tbtn.addEventListener('click', toggleTheme);
 });

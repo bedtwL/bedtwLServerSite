@@ -1,11 +1,25 @@
 /* Recode main styles (simplified) */
 :root{--bg:#050505;--text:#fff;--muted:#b0b0b0;--link:#19d7fc;--highlight:rgb(255, 73, 73);--highlight-shadow:rgb(255,72,72)}
+
+/* Light theme variables (applied when html[data-theme="light"]) */
+html[data-theme="light"]{
+  --bg: #ffffff;
+  --text: #111111;
+  --muted: #6b6b6b;
+  --link: #0b7b44; /* greener link for light */
+  /* stronger glass border for light theme so boundaries remain visible */
+  --glass-border: rgba(0,0,0,0.12);
+  --glass-accent-1: rgba(255,255,255,0.6);
+  --glass-accent-2: rgba(255,255,255,0.5);
+  --glass-shadow: 0 8px 30px rgba(16,24,32,0.08);
+}
+
 body{margin:0;font-family:Inter,system-ui,Arial;background:var(--bg);color:var(--text)}
 .nav-link{color:var(--text);text-decoration:none;font-weight:600;padding:8px 12px;border-radius:8px;transition:background 0.2s}
 .nav-link-colored{color:var(--link)}
 .player{color:var(--link)}
 .logo{width: 32px;height: 32px;}
-.highlight {color:var(--highlight);text-shadow:0 0 20px var(--highlight-shadow);}
+.highlight {color:var(--highlight);text-shadow:0 0 20px var(--highlight-shadow);} 
 .nav-link:hover{background:rgba(255,255,255,0.03)}
 .icon-btn{background:transparent;border: none;border:0;padding:6px;border-radius:8px;cursor:pointer}
 .icon-btn img{display:block;opacity:0.9}
@@ -23,3 +37,30 @@ body{margin:0;font-family:Inter,system-ui,Arial;background:var(--bg);color:var(-
 .icon-btn{background:transparent;border: none;border:0;padding:6px;border-radius:8px;cursor:pointer;transition:background-color 350ms ease, color 350ms ease, transform 120ms ease}
 .copy-success{background-color:#2ab56b !important;color:#fff !important}
 .copy-anim{transform:translateY(-1px)}
+
+/* restore deeper border for light theme */
+html[data-theme="light"] .modes .card,html[data-theme="light"] #news .card{box-shadow:0 10px 30px rgba(16,24,32,0.08), inset 0 0 0 1px rgba(0,0,0,0.12)}
+
+/* Make the copy button readable against both themes with a subtle border */
+#copy.icon-btn{
+  border: 1px solid var(--glass-border);
+  background: rgba(255,255,255,0.02);
+  padding: 6px 10px;
+  border-radius: 8px;
+  transition: background-color 160ms ease, transform 120ms ease, border-color 160ms ease;
+  color: inherit;
+}
+
+/* Keep same border color in light theme as other glass elements */
+html[data-theme="light"] #copy.icon-btn{
+  border: 1px solid var(--glass-border);
+  background: rgba(0,0,0,0.03);
+  color: var(--text);
+}
+
+#copy.icon-btn:hover{ background: rgba(255,255,255,0.04) }
+#copy.icon-btn:active{ transform: translateY(1px) }
+#copy.icon-btn:focus{ outline: 2px solid var(--link); outline-offset: 2px }
+
+/* keep copy-success visual strong but do not change border color */
+#copy.icon-btn.copy-success{ background-color: #0a6b35 !important; border-color: inherit !important }

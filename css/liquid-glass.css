@@ -1,5 +1,24 @@
 /* Liquid glass CSS (kept) */
 :root{--glass-accent-1:rgba(255,255,255,0.06);--glass-accent-2:rgba(255,255,255,0.03);--glass-border:rgba(255,255,255,0.14)}
-body::before{content:"";position:fixed;inset:-20% -20% -20% -20%;z-index:-2;background:radial-gradient(circle at 10% 20%, rgba(148,198,255,0.16) 0%, transparent 25%),radial-gradient(circle at 85% 75%, rgba(0,238,255,0.12) 0%, transparent 28%),radial-gradient(circle at 60% 10%, rgba(255,73,73,0.08) 0%, transparent 30%);filter:blur(30px) saturate(140%);animation:blob-drift 18s ease-in-out infinite;pointer-events:none}
+body::before{content:"";position:fixed;inset:-30% -30% -30% -30%;z-index:-2;background:
+  radial-gradient(circle at 8% 18%, rgba(148,198,255,0.16) 0%, transparent 20%),
+  radial-gradient(circle at 25% 60%, rgba(0,200,180,0.12) 0%, transparent 22%),
+  radial-gradient(circle at 50% 20%, rgba(120,220,140,0.10) 0%, transparent 24%),
+  radial-gradient(circle at 85% 75%, rgba(0,238,255,0.12) 0%, transparent 28%),
+  radial-gradient(circle at 60% 10%, rgba(255,73,73,0.08) 0%, transparent 30%);
+filter:blur(30px) saturate(140%);animation:blob-drift 18s ease-in-out infinite;pointer-events:none}
 @keyframes blob-drift{0%{transform:translate3d(0,0,0) scale(1)}25%{transform:translate3d(-3%,2%,0) scale(1.05)}50%{transform:translate3d(2%,-4%,0) scale(1.02)}75%{transform:translate3d(-2%,3%,0) scale(0.98)}100%{transform:translate3d(0,0,0) scale(1)}}
 .server-item,.server-ip,.navbar,.cookie-notice,.player-tooltip{background:linear-gradient(135deg,var(--glass-accent-1),var(--glass-accent-2));border:1px solid var(--glass-border);backdrop-filter:blur(14px) saturate(150%);box-shadow:0 6px 30px rgba(0,0,0,0.45)}
+
+/* Light-mode tweak: make the decorative background blobs brighter but more subtle
+   by using screen blend mode and slightly different colors/opacity so they
+   are visible on white without high contrast. */
+html[data-theme="light"] body::before{
+  background: radial-gradient(circle at 10% 20%, rgba(148,198,255,0.18) 0%, transparent 26%),
+              radial-gradient(circle at 85% 75%, rgba(0,238,200,0.14) 0%, transparent 30%),
+              radial-gradient(circle at 60% 10%, rgba(255,140,120,0.10) 0%, transparent 34%);
+  filter: blur(20px) saturate(180%);
+  mix-blend-mode: screen;
+  opacity: 0.95;
+  animation: blob-drift 20s ease-in-out infinite;
+}
