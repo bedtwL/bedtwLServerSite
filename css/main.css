@@ -64,3 +64,24 @@ html[data-theme="light"] #copy.icon-btn{
 
 /* keep copy-success visual strong but do not change border color */
 #copy.icon-btn.copy-success{ background-color: #0a6b35 !important; border-color: inherit !important }
+
+.site-footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 32px 0;
+  margin-top: 48px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+}
+
+.site-footer p {
+  margin: 0;
+  font-size: 14px;
+  color: var(--muted);
+}
+
+.site-footer .highlight {
+  color: var(--highlight);
+  text-shadow: 0 0 20px var(--highlight-shadow);
+}
