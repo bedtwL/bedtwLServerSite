@@ -1,24 +1,290 @@
-/* Liquid glass CSS (kept) */
-:root{--glass-accent-1:rgba(255,255,255,0.06);--glass-accent-2:rgba(255,255,255,0.03);--glass-border:rgba(255,255,255,0.14)}
-body::before{content:"";position:fixed;inset:-30% -30% -30% -30%;z-index:-2;background:
-  radial-gradient(circle at 8% 18%, rgba(148,198,255,0.16) 0%, transparent 20%),
-  radial-gradient(circle at 25% 60%, rgba(0,200,180,0.12) 0%, transparent 22%),
-  radial-gradient(circle at 50% 20%, rgba(120,220,140,0.10) 0%, transparent 24%),
-  radial-gradient(circle at 85% 75%, rgba(0,238,255,0.12) 0%, transparent 28%),
-  radial-gradient(circle at 60% 10%, rgba(255,73,73,0.08) 0%, transparent 30%);
-filter:blur(30px) saturate(140%);animation:blob-drift 18s ease-in-out infinite;pointer-events:none}
-@keyframes blob-drift{0%{transform:translate3d(0,0,0) scale(1)}25%{transform:translate3d(-3%,2%,0) scale(1.05)}50%{transform:translate3d(2%,-4%,0) scale(1.02)}75%{transform:translate3d(-2%,3%,0) scale(0.98)}100%{transform:translate3d(0,0,0) scale(1)}}
-.server-item,.server-ip,.navbar,.cookie-notice,.player-tooltip{background:linear-gradient(135deg,var(--glass-accent-1),var(--glass-accent-2));border:1px solid var(--glass-border);backdrop-filter:blur(14px) saturate(150%);box-shadow:0 6px 30px rgba(0,0,0,0.45)}
+/* ═══════════════════════════════════════════════════════════════════
+   Enhanced Liquid Glass CSS — Premium glassmorphism with depth
+   ═══════════════════════════════════════════════════════════════════ */
 
-/* Light-mode tweak: make the decorative background blobs brighter but more subtle
-   by using screen blend mode and slightly different colors/opacity so they
-   are visible on white without high contrast. */
-html[data-theme="light"] body::before{
-  background: radial-gradient(circle at 10% 20%, rgba(148,198,255,0.18) 0%, transparent 26%),
-              radial-gradient(circle at 85% 75%, rgba(0,238,200,0.14) 0%, transparent 30%),
-              radial-gradient(circle at 60% 10%, rgba(255,140,120,0.10) 0%, transparent 34%);
-  filter: blur(20px) saturate(180%);
-  mix-blend-mode: screen;
-  opacity: 0.95;
-  animation: blob-drift 20s ease-in-out infinite;
+/* ─────────────────────────────────────────────────────────────────── 
+   § 1. Base Glass Variables (Dark Theme)
+   ─────────────────────────────────────────────────────────────────── */
+:root {
+  /* Glass surface layers */
+  --glass-bg-primary: rgba(255, 255, 255, 0.065);
+  --glass-bg-secondary: rgba(255, 255, 255, 0.035);
+  --glass-border: rgba(255, 255, 255, 0.16);
+  --glass-border-subtle: rgba(255, 255, 255, 0.08);
+  
+  /* Refraction & depth */
+  --glass-shadow-sm: 0 4px 16px rgba(0, 0, 0, 0.3),
+                     0 8px 32px rgba(0, 0, 0, 0.2);
+  --glass-shadow-md: 0 8px 32px rgba(0, 0, 0, 0.35),
+                     0 16px 64px rgba(0, 0, 0, 0.25),
+                     inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+  --glass-shadow-lg: 0 12px 48px rgba(0, 0, 0, 0.4),
+                     0 24px 96px rgba(0, 0, 0, 0.3),
+                     inset 0 1px 0 0 rgba(255, 255, 255, 0.12);
+  
+  /* Glass shine overlay (for hover effects) */
+  --glass-shine: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.12) 0%,
+    rgba(255, 255, 255, 0.06) 50%,
+    transparent 100%
+  );
+  
+  /* Backdrop filters */
+  --glass-blur: blur(20px) saturate(160%);
+  --glass-blur-heavy: blur(32px) saturate(180%);
+}
+
+/* ─────────────────────────────────────────────────────────────────── 
+   § 2. Animated Gradient Background
+   ─────────────────────────────────────────────────────────────────── */
+body::before {
+  content: "";
+  position: fixed;
+  inset: -40% -40% -40% -40%;
+  z-index: -2;
+  background:
+    /* Cyan-blue glow (top-left) */
+    radial-gradient(
+      circle at 12% 15%,
+      rgba(100, 200, 255, 0.22) 0%,
+      rgba(100, 200, 255, 0.08) 18%,
+      transparent 28%
+    ),
+    /* Teal accent (mid-left) */
+    radial-gradient(
+      circle at 22% 58%,
+      rgba(0, 220, 200, 0.18) 0%,
+      rgba(0, 220, 200, 0.06) 20%,
+      transparent 32%
+    ),
+    /* Mint green (top-center) */
+    radial-gradient(
+      circle at 52% 18%,
+      rgba(120, 240, 160, 0.14) 0%,
+      rgba(120, 240, 160, 0.05) 22%,
+      transparent 35%
+    ),
+    /* Aqua (bottom-right) */
+    radial-gradient(
+      circle at 82% 72%,
+      rgba(0, 240, 255, 0.20) 0%,
+      rgba(0, 240, 255, 0.08) 24%,
+      transparent 38%
+    ),
+    /* Soft red accent (top-right) */
+    radial-gradient(
+      circle at 88% 12%,
+      rgba(255, 90, 90, 0.12) 0%,
+      rgba(255, 90, 90, 0.04) 20%,
+      transparent 32%
+    ),
+    /* Deep purple base (center) */
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(100, 80, 200, 0.08) 0%,
+      transparent 45%
+    );
+  
+  filter: blur(48px) saturate(120%) brightness(1.02);
+  animation: blob-drift 28s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+  pointer-events: none;
+  will-change: transform;
+}
+
+@keyframes blob-drift {
+  0%   { transform: translate3d(0, 0, 0) scale(1) rotate(0deg); }
+  20%  { transform: translate3d(-4%, 3%, 0) scale(1.08) rotate(2deg); }
+  40%  { transform: translate3d(3%, -5%, 0) scale(1.05) rotate(-1deg); }
+  60%  { transform: translate3d(-2%, 4%, 0) scale(0.98) rotate(1deg); }
+  80%  { transform: translate3d(4%, -2%, 0) scale(1.02) rotate(-2deg); }
+  100% { transform: translate3d(0, 0, 0) scale(1) rotate(0deg); }
+}
+
+/* ─────────────────────────────────────────────────────────────────── 
+   § 3. Glass Elements — Core Styling
+   ─────────────────────────────────────────────────────────────────── */
+.navbar,
+.server-ip,
+.card {
+  position: relative;
+  background: linear-gradient(
+    135deg,
+    var(--glass-bg-primary) 0%,
+    var(--glass-bg-secondary) 100%
+  );
+  border: 1px solid var(--glass-border);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  box-shadow: var(--glass-shadow-md);
+  transition: all 0.4s cubic-bezier(0.23, 1, 0.32, 1);
+}
+
+/* Enhanced hover states with shine effect that follows mouse */
+.card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: radial-gradient(
+    circle 600px at var(--mouse-x, 50%) var(--mouse-y, 50%),
+    rgba(255, 255, 255, 0.15) 0%,
+    rgba(255, 255, 255, 0.08) 30%,
+    transparent 70%
+  );
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  pointer-events: none;
+}
+
+.card:hover::before {
+  opacity: 1;
+}
+
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 
+    0 12px 48px rgba(0, 0, 0, 0.4),
+    0 24px 96px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.16);
+  border-color: rgba(255, 255, 255, 0.22);
+}
+
+/* Navbar glass enhancement */
+.navbar {
+  backdrop-filter: var(--glass-blur-heavy);
+  -webkit-backdrop-filter: var(--glass-blur-heavy);
+}
+
+/* Server IP container — extra subtle glass */
+.server-ip {
+  box-shadow: var(--glass-shadow-sm);
+  border: 1px solid var(--glass-border-subtle);
+  background: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.05) 0%,
+    rgba(255, 255, 255, 0.02) 100%
+  );
+}
+
+.server-ip:hover {
+  border-color: var(--glass-border);
+  box-shadow: 
+    0 6px 24px rgba(0, 0, 0, 0.35),
+    0 12px 48px rgba(0, 0, 0, 0.25);
+}
+
+/* ─────────────────────────────────────────────────────────────────── 
+   § 4. Light Theme Overrides
+   ─────────────────────────────────────────────────────────────────── */
+html[data-theme="light"] {
+  /* Light mode glass variables */
+  --glass-bg-primary: rgba(255, 255, 255, 0.85);
+  --glass-bg-secondary: rgba(255, 255, 255, 0.72);
+  --glass-border: rgba(0, 0, 0, 0.15);
+  --glass-border-subtle: rgba(0, 0, 0, 0.08);
+  
+  --glass-shadow-sm: 0 4px 16px rgba(16, 24, 40, 0.08),
+                     0 8px 32px rgba(16, 24, 40, 0.05);
+  --glass-shadow-md: 0 8px 32px rgba(16, 24, 40, 0.10),
+                     0 16px 64px rgba(16, 24, 40, 0.06),
+                     inset 0 0 0 1px rgba(255, 255, 255, 0.4);
+  --glass-shadow-lg: 0 12px 48px rgba(16, 24, 40, 0.12),
+                     0 24px 96px rgba(16, 24, 40, 0.08),
+                     inset 0 1px 0 0 rgba(255, 255, 255, 0.6);
+  
+  --glass-shine: linear-gradient(
+    135deg,
+    rgba(255, 255, 255, 0.6) 0%,
+    rgba(255, 255, 255, 0.3) 50%,
+    transparent 100%
+  );
+  
+  --glass-blur: blur(24px) saturate(200%);
+  --glass-blur-heavy: blur(40px) saturate(220%);
+}
+
+/* Light mode background — softer pastel gradients */
+html[data-theme="light"] body::before {
+  background:
+    /* Soft blue (top-left) */
+    radial-gradient(
+      circle at 15% 18%,
+      rgba(150, 210, 255, 0.28) 0%,
+      rgba(150, 210, 255, 0.12) 22%,
+      transparent 35%
+    ),
+    /* Mint accent (mid-left) */
+    radial-gradient(
+      circle at 28% 55%,
+      rgba(100, 240, 220, 0.22) 0%,
+      rgba(100, 240, 220, 0.08) 24%,
+      transparent 38%
+    ),
+    /* Soft green (top-center) */
+    radial-gradient(
+      circle at 55% 15%,
+      rgba(160, 250, 180, 0.20) 0%,
+      rgba(160, 250, 180, 0.08) 26%,
+      transparent 40%
+    ),
+    /* Aqua glow (bottom-right) */
+    radial-gradient(
+      circle at 78% 70%,
+      rgba(80, 240, 255, 0.24) 0%,
+      rgba(80, 240, 255, 0.10) 28%,
+      transparent 42%
+    ),
+    /* Warm coral (top-right) */
+    radial-gradient(
+      circle at 85% 20%,
+      rgba(255, 160, 140, 0.18) 0%,
+      rgba(255, 160, 140, 0.06) 24%,
+      transparent 36%
+    ),
+    /* Lavender base */
+    radial-gradient(
+      circle at 50% 50%,
+      rgba(180, 160, 240, 0.12) 0%,
+      transparent 50%
+    );
+  
+  filter: blur(36px) saturate(140%) brightness(1.08);
+  mix-blend-mode: soft-light;
+  opacity: 0.9;
+  animation: blob-drift 32s cubic-bezier(0.45, 0.05, 0.55, 0.95) infinite;
+}
+
+/* Light mode — invert hover shine */
+html[data-theme="light"] .card:hover {
+  box-shadow: 
+    0 12px 48px rgba(16, 24, 40, 0.14),
+    0 24px 96px rgba(16, 24, 40, 0.10),
+    inset 0 1px 0 0 rgba(255, 255, 255, 0.7);
+}
+
+/* ─────────────────────────────────────────────────────────────────── 
+   § 5. Refinements — Smooth animations & transitions
+   ─────────────────────────────────────────────────────────────────── */
+
+/* Reduce motion for accessibility */
+@media (prefers-reduced-motion: reduce) {
+  body::before {
+    animation: none !important;
+  }
+  
+  .card,
+  .card::before,
+  .server-ip,
+  .navbar {
+    transition: none !important;
+  }
+}
+
+/* Performance hints */
+.navbar,
+.server-ip,
+.card {
+  will-change: transform, box-shadow;
+  transform: translateZ(0); /* Force GPU acceleration */
 }

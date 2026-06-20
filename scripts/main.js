@@ -72,6 +72,36 @@ function toggleTheme(){
   try{ localStorage.setItem('site-theme', document.documentElement.getAttribute('data-theme')||'light') }catch(e){}
 }
 
+// Card mouse tracking for shine effect
+function setupCardShineTracking() {
+  const cards = document.querySelectorAll('.card');
+  
+  cards.forEach(card => {
+    card.addEventListener('mousemove', (e) => {
+      const rect = card.getBoundingClientRect();
+      const x = ((e.clientX - rect.left) / rect.width) * 100;
+      const y = ((e.clientY - rect.top) / rect.height) * 100;
+      
+      card.style.setProperty('--mouse-x', `${x}%`);
+      card.style.setProperty('--mouse-y', `${y}%`);
+    });
+    
+    card.addEventListener('mouseleave', () => {
+      card.style.setProperty('--mouse-x', '50%');
+      card.style.setProperty('--mouse-y', '50%');
+    });
+  });
+}
+
+// Update theme toggle icon based on current theme
+function updateThemeIcon() {
+  const btn = document.getElementById('theme-toggle');
+  if (!btn) return;
+  
+  const currentTheme = document.documentElement.getAttribute('data-theme');
+  btn.textContent = currentTheme === 'light' ? '🌙' : '☀️';
+}
+
 // attach listeners
 window.addEventListener('load',()=>{
   const b = document.getElementById('copy');
@@ -82,5 +112,14 @@ window.addEventListener('load',()=>{
 
   // bind theme toggle button
   const tbtn = document.getElementById('theme-toggle');
-  if(tbtn) tbtn.addEventListener('click', toggleTheme);
+  if(tbtn) {
+    tbtn.addEventListener('click', () => {
+      toggleTheme();
+      updateThemeIcon();
+    });
+    updateThemeIcon(); // Set initial icon
+  }
+  
+  // Setup card shine tracking
+  setupCardShineTracking();
 });
